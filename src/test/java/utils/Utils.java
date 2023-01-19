@@ -26,15 +26,22 @@ public class Utils {
         Faker faker = new Faker();
         return faker.name().fullName();
     }
-    public static void saveJsonList(String phoneNumber, String shopName) throws IOException, ParseException {
-        String fileName="./src/test/resources/Users.json";
+    public static void saveJsonList(String phoneNumber, String name, String fileToSave) throws Exception {
+        String fileName="./src/test/resources/"+ fileToSave +".json";
         JSONParser parser=new JSONParser();
         Object obj= parser.parse(new FileReader(fileName));
         JSONArray jsonArray= (JSONArray) obj;
 
         JSONObject userObject=new JSONObject();
-        userObject.put("phone",phoneNumber);
-        userObject.put("shop",shopName);
+        if (fileToSave == "users") {
+            userObject.put("phone",phoneNumber);
+            userObject.put("shop",name);
+        } else if (fileToSave == "customers") {
+            userObject.put("phone",phoneNumber);
+            userObject.put("name",name);
+        } else {
+            throw new Exception("file not found");
+        }
         jsonArray.add(userObject);
 
         FileWriter file=new FileWriter(fileName);
@@ -43,23 +50,28 @@ public class Utils {
         file.close();
     }
 
-    public static JSONArray readJSONList() throws IOException, ParseException {
-        String fileName="./src/test/resources/Users.json";
+    public static JSONArray readJSONList(String fileToRead) throws IOException, ParseException {
+        String fileName="./src/test/resources/"+ fileToRead +".json";
         JSONParser parser=new JSONParser();
         Object object= parser.parse(new FileReader(fileName));
         return (JSONArray) object;
 
     }
-//    public static String getLastRegisteredUserPhone() throws IOException, ParseException {
-//        List usersList = readJSONList();
-//        JSONObject userObj= (JSONObject) usersList.get(usersList.size()-1);
-//        String phoneNumber = (String) userObj.get("phone");
-//        return phoneNumber;
-//    }
-    public static String getLastRegisteredUserShop() throws IOException, ParseException {
-        List usersList = readJSONList();
+    public static String getLastRegisteredUserPhone(String fileToRead) throws IOException, ParseException {
+        List usersList = readJSONList(fileToRead);
+        JSONObject userObj= (JSONObject) usersList.get(usersList.size()-1);
+        String phoneNumber = (String) userObj.get("phone");
+        return phoneNumber;
+    }
+    public static String getLastRegisteredUserShopName(String fileToRead) throws IOException, ParseException {
+        List usersList = readJSONList(fileToRead);
         JSONObject userObj= (JSONObject) usersList.get(usersList.size()-1);
         return (String) userObj.get("shop");
+    }
+    public static String getLastAddedCustomerName(String fileToRead) throws IOException, ParseException {
+        List usersList = readJSONList(fileToRead);
+        JSONObject userObj= (JSONObject) usersList.get(usersList.size()-1);
+        return (String) userObj.get("name");
     }
 
     public static void main(String[] args) {

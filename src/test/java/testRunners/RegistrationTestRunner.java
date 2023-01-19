@@ -25,18 +25,18 @@ public class RegistrationTestRunner extends Setup {
         Assert.assertTrue(isButtonEnabled);
     }
     @Test(priority = 3, description = "Enter shop name")
-    public void enterShopNameAndClickButton() throws IOException, ParseException {
+    public void enterShopNameAndClickButton() throws Exception {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
         boolean isButtonEnabled = rScreen.insertShopNameAndClickButton(shopName);
         if (isButtonEnabled) {
-            Utils.saveJsonList(phoneNumber, shopName);
+            Utils.saveJsonList(phoneNumber, shopName, "users");
         }
         Assert.assertTrue(isButtonEnabled);
     }
     @Test(priority = 4, description = "Match shop title")
     public void matchShopTitle() throws IOException, ParseException {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
-        String expected_shop_title = Utils.getLastRegisteredUserShop();
+        String expected_shop_title = Utils.getLastRegisteredUserShopName("users");
         String actual_shop_title = rScreen.textShopTitle.getText();
         Assert.assertEquals(expected_shop_title, actual_shop_title);
     }
