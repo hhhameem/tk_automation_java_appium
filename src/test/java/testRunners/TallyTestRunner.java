@@ -25,7 +25,8 @@ public class TallyTestRunner extends Setup {
     public void addCustomerWithNameAndPhone() throws Exception {
         TallyScreen tScreen = new TallyScreen(driver);
         String customerName = Utils.randomCustomerName();
-        String customerPhoneNumber = Utils.randomPhoneNumber();
+//        String customerPhoneNumber = Utils.randomPhoneNumber();
+        String customerPhoneNumber = "01517169846";
         String confirmationMessage = tScreen.addCustomerWithNameAndPhone(customerName, customerPhoneNumber);
         String[] arrOfStr = confirmationMessage.split("-");
         String[] bangla = new String[]{"কে টালিতে যোগ করা হয়েছে।"};
@@ -41,10 +42,10 @@ public class TallyTestRunner extends Setup {
         Utils.saveJsonList(customerPhoneNumber, customerName,"customers");
 //        Assert.assertTrue(confirmationMessage.contains(arrOfStr[1]));
     }
-    @Test(priority = 2, enabled = false, description = "Create customer with all the input along with date and image")
+    @Test(priority = 2, description = "Create customer with all the input along with date and image")
     public void addCustomerFromContactBookWithAllInput() {
         TallyScreen tScreen = new TallyScreen(driver);
-        String confirmationMessage = tScreen.addCustomerFromContactBookWithAllInput();
+        String confirmationMessage = tScreen.addCustomerFromContactBookWithAllInput("12");
         System.out.println(confirmationMessage);
     }
     @Test(priority = 3, description = "Create supplier with only name and phone")
@@ -56,10 +57,10 @@ public class TallyTestRunner extends Setup {
         Utils.saveJsonList(supplierPhoneNumber, supplierName,"customers");
         System.out.println(confirmationMessage);
     }
-    @Test(priority = 4, enabled = false, description = "Create supplier with all the input along with date and image")
+    @Test(priority = 4, description = "Create supplier with all the input along with date and image")
     public void addSupplierFromContactBookWithAllInput() {
         TallyScreen tScreen = new TallyScreen(driver);
-        String confirmationMessage = tScreen.addSupplierFromContactBookWithAllInput();
+        String confirmationMessage = tScreen.addSupplierFromContactBookWithAllInput("11");
         System.out.println(confirmationMessage);
     }
     @Test(priority = 5, description = "Loop through customer list and print out length of data")
@@ -69,23 +70,36 @@ public class TallyTestRunner extends Setup {
         System.out.println("Customer length " + actualTotalCustomerLength);
 //        Assert.assertEquals(actualTotalCustomerLength, 2);
     }
-    @Test(priority = 6, description = "Search for the last customer")
-    public void searchForLastCustomer() throws IOException, ParseException, InterruptedException {
+    @Test(priority = 6, description = "Edit first customer from  the customer list")
+    public void editFirstCustomerInfo() throws IOException, ParseException, InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        String confirmationMessage = tScreen.editFirstCustomerInfo("12");
+        System.out.println("confirmation Message after edit " + confirmationMessage);
+//        Assert.assertEquals(customerFound, 1);
+    }
+    @Test(priority = 7, description = "Search for the last customer added in the customer list")
+    public void searchForLastAddedCustomer() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         int customerFound = tScreen.searchLastAddedCustomer(Utils.getLastAddedCustomerName("customers"));
         System.out.println("Customer found " + customerFound);
 //        Assert.assertEquals(customerFound, 1);
     }
-    @Test(priority = 7, description = "Close eye Button and check that all numbers ar hidden")
+    @Test(priority = 8, description = "Close eye Button and check that all numbers ar hidden")
     public void closeEyeButton() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         String totalPabo = tScreen.closeEyeButton();
         Assert.assertEquals(totalPabo, "- - -");
     }
-    @Test(priority = 8, description = "Add filter for Showing only customer")
+    @Test(priority = 9, description = "Add filter for Showing only customer")
     public void addFilterOnlyCustomer() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         int customerFound = tScreen.addFilter();
         System.out.println("Customer found " + customerFound);
+    }
+    @Test(priority = 10, description = "Tagada pathai to customers")
+    public void tagadaPathai() throws IOException, ParseException, InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        String tagadaSentConfirmationMessage = tScreen.tagadaPathai();
+        System.out.println("tagada Sent Confirmation Message " + tagadaSentConfirmationMessage);
     }
 }

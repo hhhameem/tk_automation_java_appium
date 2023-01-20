@@ -67,12 +67,12 @@ public class TallyScreen {
     WebElement btnPhoneBookThekeJogKori;
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout")
-    WebElement objectSecondContact;
+            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.RelativeLayout")
+    WebElement objectFirstContact;
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[6]/android.widget.RelativeLayout")
-    WebElement objectSixthContact;
+            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[8]/android.widget.RelativeLayout")
+    WebElement objectEighthContact;
     @FindBy(id = "com.progoti.tallykhata:id/tvConfirmationMessageForCustomer")
     WebElement textConfirmMessageAfterCreation;
     @FindBy(id = "com.progoti.tallykhata:id/ivLayCamera")
@@ -91,6 +91,20 @@ public class TallyScreen {
     WebElement btnPickDate;
     @FindBy(id = "android:id/button1")
     WebElement btnOkAfterDatePicking;
+
+    //    Tally Customer edit page elements
+    @FindBy(id = "com.progoti.tallykhata:id/etSale")
+    WebElement inputDilam;
+    @FindBy(id = "com.progoti.tallykhata:id/etGot")
+    WebElement inputPelam;
+    @FindBy(id = "com.progoti.tallykhata:id/etDescription")
+    WebElement inputBiboron;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/" +
+            "android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/" +
+            "android.widget.TextView")
+    WebElement textConfirmMessageAfterEdit;
+    @FindBy(id = "com.progoti.tallykhata:id/btnConfirmCreditEntry")
+    WebElement btnNischitAfterEdit;
 
     //    Tally Tagada pathai page elements
     @FindBy(id = "com.progoti.tallykhata:id/layout")
@@ -112,13 +126,13 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
-    public String addCustomerFromContactBookWithAllInput() {
+    public String addCustomerFromContactBookWithAllInput(String purberBaki) {
         tabTally.click();
         btnAddCustomer.click();
         btnPhoneBookThekeJogKori.click();
-        objectSecondContact.click();
-//        inputPurberBaki.sendKeys(purberBaki);
-//        btnradioSendSMS.click();
+        objectEighthContact.click();
+        inputPurberBaki.sendKeys(purberBaki);
+        btnradioSendSMS.click();
         btnOpenCamera.click();
         btnClickPhoto.click();
         btnAcceptClickedPhoto.click();
@@ -137,14 +151,13 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
-    public String addSupplierFromContactBookWithAllInput() {
+    public String addSupplierFromContactBookWithAllInput(String purberBaki) {
         tabTally.click();
         btnAddCustomer.click();
         tabSupplier.click();
         btnPhoneBookThekeJogKori.click();
-        objectSixthContact.click();
-//        inputPurberBaki.sendKeys(purberBaki);
-//        btnradioSendSMS.click();
+        objectFirstContact.click();
+        inputPurberBaki.sendKeys(purberBaki);
         btnOpenCamera.click();
         btnClickPhoto.click();
         btnAcceptClickedPhoto.click();
@@ -153,6 +166,12 @@ public class TallyScreen {
         btnOkAfterDatePicking.click();
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
+    }
+    public String editFirstCustomerInfo(String pelam) {
+        objectCustomerDetailsContainer.get(0).click();
+        inputPelam.sendKeys(pelam);
+        btnNischitAfterEdit.click();
+        return textConfirmMessageAfterEdit.getText();
     }
 
     public int searchLastAddedCustomer(String customerName) throws InterruptedException {
@@ -170,7 +189,6 @@ public class TallyScreen {
         System.out.println(totalPabo == "- - -");
         return  totalPabo;
     }
-
     public int addFilter() throws InterruptedException {
         btnEye.click();
         Thread.sleep(1000);
@@ -178,5 +196,12 @@ public class TallyScreen {
         inputCheckBoxCustomer.click();
         btnNischit.click();
         return objectCustomerDetailsContainer.size();
+    }
+    public String tagadaPathai() {
+        btnTagadaPathai.click();
+        objectTagadaPathaiDetailsContainer.get(0).click();
+        btnSendTagadaSms.click();
+        btnThikAche.click();
+        return  textTagadaMessageSentConfirmation.getText();
     }
 }
