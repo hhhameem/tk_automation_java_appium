@@ -36,7 +36,7 @@ public class TallyTestRunner extends Setup {
 
 //        String utf8EncodedString = StandardCharsets.UTF_8.decode(buffer).toString();
 //        System.out.println("actual "+confirmationMessage);
-//        String expected = "\"" + name + "\"- " + " কে টালিতে যোগ করা হয়েছে।";
+//        String expected = "\"" + customerName + "\"- " + " কে টালিতে যোগ করা হয়েছে।";
 //        System.out.println("after splitting "+ arrOfStr[1]);
 //        System.out.println("bangla "+ bangla[0].getClass().getName());
         Utils.saveJsonList(customerPhoneNumber, customerName,"customers");
@@ -71,35 +71,48 @@ public class TallyTestRunner extends Setup {
 //        Assert.assertEquals(actualTotalCustomerLength, 2);
     }
     @Test(priority = 6, description = "Edit first customer from  the customer list")
-    public void editFirstCustomerInfo() throws IOException, ParseException, InterruptedException {
+    public void editFirstCustomerPelam() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
-        String confirmationMessage = tScreen.editFirstCustomerInfo("12");
+        String confirmationMessage = tScreen.editFirstCustomerPelam("12");
         System.out.println("confirmation Message after edit " + confirmationMessage);
 //        Assert.assertEquals(customerFound, 1);
     }
-    @Test(priority = 7, description = "Search for the last customer added in the customer list")
+    @Test(priority = 7, description = "Update first customer name from  the customer list")
+    public void editFirstCustomerName() throws IOException, ParseException, InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        String confirmationMessage = tScreen.editFirstCustomerName(Utils.randomCustomerName());
+        System.out.println("confirmation Message after name update " + confirmationMessage);
+//        Assert.assertEquals(customerFound, 1);
+    }
+    @Test(priority = 8, description = "Search for the last customer added in the customer list")
     public void searchForLastAddedCustomer() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         int customerFound = tScreen.searchLastAddedCustomer(Utils.getLastAddedCustomerName("customers"));
         System.out.println("Customer found " + customerFound);
 //        Assert.assertEquals(customerFound, 1);
     }
-    @Test(priority = 8, description = "Close eye Button and check that all numbers ar hidden")
+    @Test(priority = 9, description = "Close eye Button and check that all numbers ar hidden")
     public void closeEyeButton() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         String totalPabo = tScreen.closeEyeButton();
         Assert.assertEquals(totalPabo, "- - -");
     }
-    @Test(priority = 9, description = "Add filter for Showing only customer")
+    @Test(priority = 10, description = "Add filter for Showing only customer")
     public void addFilterOnlyCustomer() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         int customerFound = tScreen.addFilter();
         System.out.println("Customer found " + customerFound);
     }
-    @Test(priority = 10, description = "Tagada pathai to customers")
+    @Test(priority = 11, description = "Tagada pathai to customers")
     public void tagadaPathai() throws IOException, ParseException, InterruptedException {
         TallyScreen tScreen = new TallyScreen(driver);
         String tagadaSentConfirmationMessage = tScreen.tagadaPathai();
         System.out.println("tagada Sent Confirmation Message " + tagadaSentConfirmationMessage);
+    }
+    @Test(priority = 12, description = "Delete Last customer from the list")
+    public void deleteLastCustomer() throws IOException, ParseException, InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        String deleteCustomerConfirmationMessage = tScreen.deleteLastCustomer();
+        System.out.println("delete Confirmation Message " + deleteCustomerConfirmationMessage);
     }
 }

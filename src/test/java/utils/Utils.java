@@ -75,12 +75,13 @@ public class Utils {
     }
 
     public static void main(String[] args) {
-//        String myText = "\"Mr. Raymundo Torp\"- কে টালিতে যোগ করা হয়েছে।";
-        String name = "KJdhgksdjggv";
+        String myText = "\"Mr. Raymundo Torp\"- কে টালিতে যোগ করা হয়েছে।";
+        String name = "Mr. Raymundo Torp";
 
         name = "\"" + name + "\"";
         String expected = name.concat("- কে টালিতে যোগ করা হয়েছে।");
         System.out.println("Expected "+expected);
-//        System.out.println(myText.contains("টালিতে যোগ করা হয়েছে।"));
+        System.out.println("does contain "+ myText.contains("টালিতে যোগ করা হয়েছে।"));
+
     }
 }

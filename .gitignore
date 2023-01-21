@@ -6,4 +6,6 @@ build
 /build
 build/
 .env
+src/test/resources/text.txt
+src/test/java/testRunners/test.java
 

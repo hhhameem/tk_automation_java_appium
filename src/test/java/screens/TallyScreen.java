@@ -93,6 +93,18 @@ public class TallyScreen {
     WebElement btnOkAfterDatePicking;
 
     //    Tally Customer edit page elements
+    @FindBy(id = "com.progoti.tallykhata:id/lay_details_report")
+    WebElement btnReport;
+    @FindBy(id = "com.progoti.tallykhata:id/icCustomerEdit")
+    WebElement btnEditCustomerInfo;
+    @FindBy(id = "com.progoti.tallykhata:id/icCustomerDelete")
+    WebElement btnDeleteCustomer;
+    @FindBy(id = "com.progoti.tallykhata:id/btnDeleteCustomer")
+    WebElement btnConfirmDeleteCustomer;
+    @FindBy(id = "com.progoti.tallykhata:id/btnCancel")
+    WebElement btnBatilDeleteCustomer;
+    @FindBy(id = "com.progoti.tallykhata:id/etCustomerName")
+    WebElement inputCustomerName;
     @FindBy(id = "com.progoti.tallykhata:id/etSale")
     WebElement inputDilam;
     @FindBy(id = "com.progoti.tallykhata:id/etGot")
@@ -102,7 +114,11 @@ public class TallyScreen {
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/" +
             "android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/" +
             "android.widget.TextView")
-    WebElement textConfirmMessageAfterEdit;
+    WebElement textConfirmMessageAfterEditPleam;
+    @FindBy(id = "com.progoti.tallykhata:id/tvConfirmationMessage")
+    WebElement textConfirmMessageAfterNameUpdate;
+    @FindBy(id = "com.progoti.tallykhata:id/tvConfirmationMessage")
+    WebElement textConfirmMessageAfterDeleteCustomer;
     @FindBy(id = "com.progoti.tallykhata:id/btnConfirmCreditEntry")
     WebElement btnNischitAfterEdit;
 
@@ -167,13 +183,34 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
-    public String editFirstCustomerInfo(String pelam) {
+    public String editFirstCustomerPelam(String pelam) {
         objectCustomerDetailsContainer.get(0).click();
         inputPelam.sendKeys(pelam);
+        btnradioSendSMS.click();
         btnNischitAfterEdit.click();
-        return textConfirmMessageAfterEdit.getText();
+        return textConfirmMessageAfterEditPleam.getText();
     }
-
+    public String editFirstCustomerName(String customerUpdatedName) throws InterruptedException {
+        objectCustomerDetailsContainer.get(0).click();
+        btnReport.click();
+        btnEditCustomerInfo.click();
+        inputCustomerName.sendKeys(customerUpdatedName);
+        btnNischit.click();
+        Thread.sleep(1000);
+        btnNischit.click();
+        return textConfirmMessageAfterNameUpdate.getText();
+    }
+    public String deleteLastCustomer() throws InterruptedException {
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();    //gets to home page after tagada pathai is complete
+        objectCustomerDetailsContainer.get(objectCustomerDetailsContainer.size() - 1).click();
+        btnReport.click();
+        btnDeleteCustomer.click();
+        btnConfirmDeleteCustomer.click();
+        btnNischit.click();
+        return textConfirmMessageAfterDeleteCustomer.getText();
+    }
     public int searchLastAddedCustomer(String customerName) throws InterruptedException {
         inputSearchBox.sendKeys(customerName);
         Thread.sleep(500);
