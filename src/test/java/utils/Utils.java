@@ -6,10 +6,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
@@ -25,6 +26,11 @@ public class Utils {
     public static String randomCustomerName() {
         Faker faker = new Faker();
         return faker.name().fullName();
+    }
+    public static String generateDate () {
+        LocalDate yesterday = LocalDate.now().minusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+         return yesterday.format(formatter);
     }
     public static void saveJsonList(String phoneNumber, String name, String fileToSave) throws Exception {
         String fileName="./src/test/resources/"+ fileToSave +".json";
@@ -60,8 +66,7 @@ public class Utils {
     public static String getLastRegisteredUserPhone(String fileToRead) throws IOException, ParseException {
         List usersList = readJSONList(fileToRead);
         JSONObject userObj= (JSONObject) usersList.get(usersList.size()-1);
-        String phoneNumber = (String) userObj.get("phone");
-        return phoneNumber;
+        return (String) userObj.get("phone");
     }
     public static String getLastRegisteredUserShopName(String fileToRead) throws IOException, ParseException {
         List usersList = readJSONList(fileToRead);
@@ -75,13 +80,6 @@ public class Utils {
     }
 
     public static void main(String[] args) {
-        String myText = "\"Mr. Raymundo Torp\"- কে টালিতে যোগ করা হয়েছে।";
-        String name = "Mr. Raymundo Torp";
-
-        name = "\"" + name + "\"";
-        String expected = name.concat("- কে টালিতে যোগ করা হয়েছে।");
-        System.out.println("Expected "+expected);
-        System.out.println("does contain "+ myText.contains("টালিতে যোগ করা হয়েছে।"));
-
+        System.out.println(Utils.generateDate());
     }
 }
