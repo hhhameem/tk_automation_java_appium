@@ -70,8 +70,8 @@ public class TallyScreen {
     WebElement objectFirstContact;
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[8]/android.widget.RelativeLayout")
-    WebElement objectEighthContact;
+            "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout")
+    WebElement objectSecondContact;
     @FindBy(id = "com.progoti.tallykhata:id/tvConfirmationMessageForCustomer")
     WebElement textConfirmMessageAfterCreation;
     @FindBy(id = "com.progoti.tallykhata:id/ivLayCamera")
@@ -145,7 +145,7 @@ public class TallyScreen {
         tabTally.click();
         btnAddCustomer.click();
         btnPhoneBookThekeJogKori.click();
-        objectEighthContact.click();
+        objectSecondContact.click();
         inputPurberBaki.sendKeys(purberBaki);
         btnradioSendSMS.click();
         btnOpenCamera.click();
@@ -239,5 +239,18 @@ public class TallyScreen {
         btnSendTagadaSms.click();
         btnThikAche.click();
         return  textTagadaMessageSentConfirmation.getText();
+    }
+    public boolean isNischitButtonEnabledWhenCreatingCustomer(String invalidCustomerName) {
+        btnAddCustomer.click();
+        inputCustomerOrSupplierName.sendKeys(invalidCustomerName);
+        return btnNischit.isEnabled();
+    }
+    public boolean isPorobortiButtonEnabledWhenEditingCustomerInfo(String invalidCustomerName) {
+        btnBack.click();
+        objectCustomerDetailsContainer.get(0).click();
+        btnReport.click();
+        btnEditCustomerInfo.click();
+        inputCustomerName.sendKeys(invalidCustomerName);
+        return btnNischit.isEnabled();
     }
 }

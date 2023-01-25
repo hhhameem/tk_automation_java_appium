@@ -26,9 +26,10 @@ public class TallyTestRunner extends Setup {
         TallyScreen tScreen = new TallyScreen(driver);
         String customerName = Utils.randomCustomerName();
 //        String customerPhoneNumber = Utils.randomPhoneNumber();
-        String customerPhoneNumber = "01517169846";
+        String customerPhoneNumber = "01571761196";
         String confirmationMessage = tScreen.addCustomerWithNameAndPhone(customerName, customerPhoneNumber);
         Utils.saveJsonList(customerPhoneNumber, customerName,"customers");
+        System.out.println("add customer " + dotenv.get("PARTIAL_TEXT_AFTER_CREATING_CUSTOMER_OR_SUPPLIER"));
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("PARTIAL_TEXT_AFTER_CREATING_CUSTOMER_OR_SUPPLIER")));
     }
     @Test(priority = 2, description = "Create customer with all the input along with date and image")
@@ -100,5 +101,17 @@ public class TallyTestRunner extends Setup {
         TallyScreen tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.deleteLastCustomer();
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("PARTIAL_TEXT_AFTER_DELETING_CUSTOMER_OR_SUPPLIER")));
+    }
+    @Test(priority = 13, description = "If Nischit button enabled with sending invalid customer name when creating customers")
+    public void isNischitButtonEnabledWhenCreatingCustomer() throws InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        boolean isBtnEnabled = tScreen.isNischitButtonEnabledWhenCreatingCustomer("hh");
+        Assert.assertFalse(isBtnEnabled);
+    }
+    @Test(priority = 14, description = "If Poroborti button enabled with sending invalid customer name when updating customers info")
+    public void isPorobortiButtonEnabledWhenEditingCustomerInfo() throws InterruptedException {
+        TallyScreen tScreen = new TallyScreen(driver);
+        boolean isBtnEnabled = tScreen.isPorobortiButtonEnabledWhenEditingCustomerInfo("hh");
+        Assert.assertFalse(isBtnEnabled);
     }
 }
