@@ -86,7 +86,7 @@ public class CashboxScreen {
     WebElement btnReport;
     @FindBy(id = "com.progoti.tallykhata:id/tvTxnAmount")
     List<WebElement> textTransactionAmountInCommonReport;
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout")
+    @FindBy(id = "com.progoti.tallykhata:id/tv_total_amount")
     WebElement textTotalTransactionAmountInCommonReport;
 
     //    Cashbox Main page elements
@@ -241,7 +241,7 @@ public class CashboxScreen {
         return textAjkerBecha.getText();
     }
 
-    public String cashboxMilai() throws InterruptedException {
+    public String cashboxMilai() {
         btnCashboxMilai.click();
         btnFour.click();
         btnPorobortiOrThikAcheOrNischit.click();
@@ -254,17 +254,61 @@ public class CashboxScreen {
     public void cashboxReport() throws InterruptedException {
         btnReport.click();
         Thread.sleep(1000);
-        System.out.println("textMotDilamInCashHisab " + textMotDilamInCashHisab.getText());
-        System.out.println("textMotPelamInCashHisab " + textMotPelamInCashHisab.getText());
-        System.out.println("textBalanceInCashHisab " + textBalanceInCashHisab.getText());
     }
 
     public void cashReport() throws InterruptedException {
         tabCashReportInCashHisab.click();
         Thread.sleep(1000);
-        System.out.println("textMotDilamInCashHisabCashReport " + textMotDilamInCashHisab.getText());
-        System.out.println("textMotPelamInCashHisabCashReport " + textMotPelamInCashHisab.getText());
-        System.out.println("textCashBalancePelamInCashHisabCashReport " + textCashBalancePelamInCashHisab.getText());
-        System.out.println("textMalikerBalanceInCashHisabCashReport " + textMalikerBalanceInCashHisab.getText());
+    }
+
+    public String cashBechaReport() throws InterruptedException {
+        btnBack.click();
+        objectCashBechaDetailsContainer.click();
+        btnReport.click();
+        String textTotal = textTotalTransactionAmountInCommonReport.getText();
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();
+        return textTotal;
+    }
+
+    public String cashKenaReport() throws InterruptedException {
+        objectCashKenaDetailsContainer.click();
+        btnReport.click();
+        String textTotal = textTotalTransactionAmountInCommonReport.getText();
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();
+        return textTotal;
+    }
+
+    public String khorochReport() throws InterruptedException {
+        objectKhorochDetailsContainer.click();
+        btnReport.click();
+        String textTotal = textTotalTransactionAmountInCommonReport.getText();
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();
+        return textTotal;
+    }
+
+    public String malikDiloReport() throws InterruptedException {
+        objectMalikDiloDetailsContainer.click();
+        btnReport.click();
+        String textTotal = textTotalTransactionAmountInCommonReport.getText();
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();
+        return textTotal;
+    }
+
+    public String malikNiloReport() throws InterruptedException {
+        objectMalikNiloDetailsContainer.click();
+        btnReport.click();
+        String textTotal = textTotalTransactionAmountInCommonReport.getText();
+        btnBack.click();
+        Thread.sleep(1000);
+        btnBack.click();
+        return textTotal;
     }
 }

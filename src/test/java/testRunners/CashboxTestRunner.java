@@ -30,28 +30,28 @@ public class CashboxTestRunner extends Setup {
     }
 
     @Test(priority = 2, description = "Insert cash kena and assert the confirmation message")
-    public void cashKena() throws InterruptedException {
+    public void cashKena() {
         CashboxScreen cbScreen = new CashboxScreen(driver);
         String confirmationMessage = cbScreen.cashKena("9 taka Kinlam");
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("TEXT_AFTER_UPDATING_PELAM_DILAM")));
     }
 
     @Test(priority = 3, description = "Insert khoroch and assert the confirmation message")
-    public void khoroch() throws InterruptedException {
+    public void khoroch() {
         CashboxScreen cbScreen = new CashboxScreen(driver);
         String confirmationMessage = cbScreen.khoroch("7 taka khoroch korlam");
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("TEXT_AFTER_UPDATING_PELAM_DILAM")));
     }
 
     @Test(priority = 4, description = "Insert malik dilo  and assert the confirmation message")
-    public void malikDilo() throws InterruptedException {
+    public void malikDilo() {
         CashboxScreen cbScreen = new CashboxScreen(driver);
         String confirmationMessage = cbScreen.malikDilo("9 taka malik dilo");
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("TEXT_AFTER_UPDATING_PELAM_DILAM")));
     }
 
     @Test(priority = 5, description = "Insert malik nilo  and assert the confirmation message")
-    public void malikNilo() throws InterruptedException {
+    public void malikNilo() {
         CashboxScreen cbScreen = new CashboxScreen(driver);
         String confirmationMessage = cbScreen.malikNilo();
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("TEXT_AFTER_UPDATING_PELAM_DILAM")));
@@ -83,7 +83,7 @@ public class CashboxTestRunner extends Setup {
     }
 
     @Test(priority = 8, description = "Cashbox milai")
-    public void cashboxMilai() throws InterruptedException {
+    public void cashboxMilai() {
         CashboxScreen cbScreen = new CashboxScreen(driver);
         String cashGhatti = cbScreen.cashboxMilai();
         Assert.assertEquals(cashGhatti, dotenv.get("TEXT_GHATTI"));
@@ -122,5 +122,45 @@ public class CashboxTestRunner extends Setup {
         String expectedMalikerBalance = dotenv.get("TEXT_CASH_MALIKER_BALANCE_CASH");
         softAssert.assertEquals(actualMalikerBalance, expectedMalikerBalance);
         softAssert.assertAll();
+    }
+
+    @Test(priority = 11, description = "Cash becha report")
+    public void cashBechaReport() throws InterruptedException {
+        CashboxScreen cbScreen = new CashboxScreen(driver);
+        String actualTotalTransactionAmount = cbScreen.cashBechaReport();
+        String expectedTotalTransactionAmount = dotenv.get("TEXT_CASH_BECHA");
+        Assert.assertEquals(actualTotalTransactionAmount, expectedTotalTransactionAmount);
+    }
+
+    @Test(priority = 12, description = "Cash becha report")
+    public void cashKenaReport() throws InterruptedException {
+        CashboxScreen cbScreen = new CashboxScreen(driver);
+        String actualTotalTransactionAmount = cbScreen.cashKenaReport();
+        String expectedTotalTransactionAmount = dotenv.get("TEXT_CASH_KENA");
+        Assert.assertEquals(actualTotalTransactionAmount, expectedTotalTransactionAmount);
+    }
+
+    @Test(priority = 13, description = "Khoroch report")
+    public void khorochReport() throws InterruptedException {
+        CashboxScreen cbScreen = new CashboxScreen(driver);
+        String actualTotalTransactionAmount = cbScreen.khorochReport();
+        String expectedTotalTransactionAmount = dotenv.get("TEXT_KHOROCH");
+        Assert.assertEquals(actualTotalTransactionAmount, expectedTotalTransactionAmount);
+    }
+
+    @Test(priority = 14, description = "Malik Dilo report")
+    public void malikDiloReport() throws InterruptedException {
+        CashboxScreen cbScreen = new CashboxScreen(driver);
+        String actualTotalTransactionAmount = cbScreen.malikDiloReport();
+        String expectedTotalTransactionAmount = dotenv.get("TEXT_MALIK_DILO");
+        Assert.assertEquals(actualTotalTransactionAmount, expectedTotalTransactionAmount);
+    }
+
+    @Test(priority = 15, description = "Malik Nilo report")
+    public void malikNiloReport() throws InterruptedException {
+        CashboxScreen cbScreen = new CashboxScreen(driver);
+        String actualTotalTransactionAmount = cbScreen.malikNiloReport();
+        String expectedTotalTransactionAmount = dotenv.get("TEXT_MALIK_NILO");
+        Assert.assertEquals(actualTotalTransactionAmount, expectedTotalTransactionAmount);
     }
 }
