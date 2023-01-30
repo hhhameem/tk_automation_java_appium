@@ -5,7 +5,9 @@
 build
 /build
 build/
+allure-results
+/allure-results
+allure-results/
+src/main
 .env
-src/test/resources/text.txt
-src/test/java/testRunners/test.java
 

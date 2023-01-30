@@ -3,7 +3,11 @@ package setup;
 import io.appium.java_client.android.AndroidDriver;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import utils.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,8 +36,21 @@ public class Setup {
         return driver;
     }
 
-//    @AfterTest
-//    public void closeDriver() {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void isFailed(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            try {
+                Utils.saveScreenshot("Failed Screenshot", driver);
+            } catch (Exception exception) {
+                System.out.println(exception.toString());
+            }
+
+        }
+
+    }
+
+    @AfterTest
+    public void closeDriver() {
+        driver.quit();
+    }
 }

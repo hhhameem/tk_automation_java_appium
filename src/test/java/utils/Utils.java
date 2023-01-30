@@ -1,17 +1,17 @@
 package utils;
 
 import com.github.javafaker.Faker;
+import io.appium.java_client.android.AndroidDriver;
 import io.github.cdimascio.dotenv.Dotenv;
+import io.qameta.allure.Allure;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.io.*;
 import java.util.List;
 import java.util.Random;
 
@@ -31,10 +31,9 @@ public class Utils {
         return faker.name().fullName();
     }
 
-    public static String generateDate() {
-        LocalDate yesterday = LocalDate.now().minusDays(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        return yesterday.format(formatter);
+    public static void saveScreenshot(String name, AndroidDriver driver) {
+        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        Allure.addAttachment(name, new ByteArrayInputStream(screenshot));
     }
 
     public static String banglaToEnglish(String stringToConvert) {

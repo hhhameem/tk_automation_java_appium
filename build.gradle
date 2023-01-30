@@ -1,5 +1,19 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure.gradle.allure:allure-plugin:2.11.2"
+    }
+}
+
 plugins {
     id 'java'
+    id "io.qameta.allure" version "2.11.2"
+}
+
+allure {
+    version = '2.20.1'
 }
 
 group 'org.example'
@@ -22,6 +36,8 @@ dependencies {
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     // https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java
     implementation group: 'io.github.cdimascio', name: 'dotenv-java', version: '2.3.2'
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.20.1'
 
 }
 

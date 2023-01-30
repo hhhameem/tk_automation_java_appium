@@ -141,15 +141,19 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
-    public String addCustomerFromContactBookWithAllInput(String purberBaki) {
+
+    public String addCustomerFromContactBookWithAllInput(String purberBaki) throws InterruptedException {
         tabTally.click();
         btnAddCustomer.click();
         btnPhoneBookThekeJogKori.click();
         objectSecondContact.click();
         inputPurberBaki.sendKeys(purberBaki);
         btnradioSendSMS.click();
+        Thread.sleep(1000);
         btnOpenCamera.click();
+        Thread.sleep(1000);
         btnClickPhoto.click();
+        Thread.sleep(2000);
         btnAcceptClickedPhoto.click();
         btnDatePicker.click();
         btnPickDate.click();
@@ -157,6 +161,7 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
+
     public String addSupplierWithNameAndPhone(String supplierName, String supplierPhoneNumber) {
         tabTally.click();
         btnAddCustomer.click();
@@ -166,6 +171,7 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
+
     public String addSupplierFromContactBookWithAllInput(String purberBaki) {
         tabTally.click();
         btnAddCustomer.click();
@@ -182,6 +188,7 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterCreation.getText();
     }
+
     public String editFirstCustomerPelam(String pelam) {
         objectCustomerDetailsContainer.get(0).click();
         inputPelam.sendKeys(pelam);
@@ -189,6 +196,7 @@ public class TallyScreen {
         btnNischitAfterEdit.click();
         return textConfirmMessageAfterEditPleam.getText();
     }
+
     public String editFirstCustomerName(String customerUpdatedName) throws InterruptedException {
         objectCustomerDetailsContainer.get(0).click();
         btnReport.click();
@@ -199,6 +207,7 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterNameUpdate.getText();
     }
+
     public String deleteLastCustomer() throws InterruptedException {
         btnBack.click();
         Thread.sleep(1000);
@@ -210,21 +219,24 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterDeleteCustomer.getText();
     }
+
     public int searchLastAddedCustomer(String customerName) throws InterruptedException {
         inputSearchBox.sendKeys(customerName);
         Thread.sleep(500);
         return objectCustomerDetailsContainer.size();
     }
+
     public String closeEyeButton() throws InterruptedException {
         inputSearchBox.clear();
         Thread.sleep(500);
         btnEye.click();
         Thread.sleep(1000);
         String totalPabo = textTotalpabo.getText();
-        System.out.println("totalPabo "+ totalPabo);
+        System.out.println("totalPabo " + totalPabo);
         System.out.println(totalPabo == "- - -");
-        return  totalPabo;
+        return totalPabo;
     }
+
     public int addFilter() throws InterruptedException {
         btnEye.click();
         Thread.sleep(1000);
@@ -233,18 +245,21 @@ public class TallyScreen {
         btnNischit.click();
         return objectCustomerDetailsContainer.size();
     }
+
     public String tagadaPathai() {
         btnTagadaPathai.click();
         objectTagadaPathaiDetailsContainer.get(0).click();
         btnSendTagadaSms.click();
         btnThikAche.click();
-        return  textTagadaMessageSentConfirmation.getText();
+        return textTagadaMessageSentConfirmation.getText();
     }
+
     public boolean isNischitButtonEnabledWhenCreatingCustomer(String invalidCustomerName) {
         btnAddCustomer.click();
         inputCustomerOrSupplierName.sendKeys(invalidCustomerName);
         return btnNischit.isEnabled();
     }
+
     public boolean isPorobortiButtonEnabledWhenEditingCustomerInfo(String invalidCustomerName) {
         btnBack.click();
         objectCustomerDetailsContainer.get(0).click();
