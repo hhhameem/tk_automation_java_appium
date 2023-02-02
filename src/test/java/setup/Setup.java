@@ -6,6 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import utils.Utils;
 
@@ -36,15 +37,26 @@ public class Setup {
         return driver;
     }
 
+    @BeforeMethod
+    public void waitOneSecond() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
     @AfterMethod
     public void isFailed(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
-                Utils.saveScreenshot("Failed Screenshot", driver);
+                Utils.saveScreenshot("After test failed Screenshot", driver);
             } catch (Exception exception) {
                 System.out.println(exception.toString());
             }
 
+        } else {
+            try {
+                Utils.saveScreenshot("After test Screenshot", driver);
+            } catch (Exception exception) {
+                System.out.println(exception.toString());
+            }
         }
 
     }

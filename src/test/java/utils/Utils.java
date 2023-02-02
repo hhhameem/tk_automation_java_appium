@@ -10,8 +10,12 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 
 import java.io.*;
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -31,9 +35,25 @@ public class Utils {
         return faker.name().fullName();
     }
 
+    public static String randomFruitName() {
+        Faker faker = new Faker();
+        return faker.food().fruit();
+    }
+
     public static void saveScreenshot(String name, AndroidDriver driver) {
         byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         Allure.addAttachment(name, new ByteArrayInputStream(screenshot));
+    }
+
+    public static void swipeUp(AndroidDriver driver, int duration) {
+        PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        org.openqa.selenium.Dimension dimension = driver.manage().window().getSize();
+        Sequence swipe = new Sequence(FINGER, 1)
+                .addAction(FINGER.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), (int) (dimension.width * 0.5), (int) (dimension.height * 0.9)))
+                .addAction(FINGER.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(FINGER.createPointerMove(Duration.ofMillis(duration), PointerInput.Origin.viewport(), (int) (dimension.width * 0.2), (int) (dimension.height * 0.1)))
+                .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
     }
 
     public static String banglaToEnglish(String stringToConvert) {
