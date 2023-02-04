@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -267,6 +268,7 @@ public class TallyScreen {
      *  Customer add
      * -------------------------------------
      */
+    @Step("Create customer with name {0}")
     public String addCustomerWithNameWithoutNumber(String name) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -276,6 +278,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create customer with name {0} number {1}")
     public String addCustomerWithNameNumber(String name, String number) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -296,6 +299,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create customer with name {0} number {1} jer {2}")
     public String addCustomerWithJer(String name, String number, String jer) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -309,6 +313,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create customer from phonebook with name, number and jer {0}")
     public String addCustomerFromPhoneBookWithJer(String jer) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -321,6 +326,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create customer with name {0}, number {1} and jer {2} along with photo and date")
     public String addCustomerWithJerPhotoDate(String name, String number, String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -342,6 +348,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create customer from phonebook with name, number and jer {0} along with photo and date")
     public String addCustomerFromPhoneBookWithJerPhotoDate(String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -362,22 +369,24 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
-    public boolean addCustomerWithInvalidNameValidPhone(String invalidName, String phone) {
+    @Step("Create customer with invalid name {0}, valid number {1}")
+    public boolean addCustomerWithInvalidNameValidPhone(String invalidName, String number) {
         tabTally.click();
         btnCustomerJogKori.click();
         inputCustomerOrSupplierName.sendKeys(invalidName);
-        inputCustomerOrSupplierMobileNumber.sendKeys(phone);
+        inputCustomerOrSupplierMobileNumber.sendKeys(number);
         boolean isBtnEnabled = btnNischit.isEnabled();      // should return false
         Utils.saveScreenshot("On invalid name input", driver);
         btnBack.click();
         return isBtnEnabled;
     }
 
-    public String addCustomerWithValidNameInvalidPhone(String name, String invalidPhone) {
+    @Step("Create customer with valid name {0}, invalid number {1}")
+    public String addCustomerWithValidNameInvalidPhone(String name, String invalidNumber) {
         tabTally.click();
         btnCustomerJogKori.click();
         inputCustomerOrSupplierName.sendKeys(name);
-        inputCustomerOrSupplierMobileNumber.sendKeys(invalidPhone);
+        inputCustomerOrSupplierMobileNumber.sendKeys(invalidNumber);
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         String errorAlert = alertSnackbarText.getText();     // should return মোবাইল নম্বর সঠিক নয়।
@@ -386,33 +395,7 @@ public class TallyScreen {
         return errorAlert;
     }
 
-//TODO this test needs to be completed later
-//    public String addCustomerWithValidNameValidPhoneNegativeJer(String name, String phone, AndroidDriver driver) throws InterruptedException {
-//        tabTally.click();
-//        btnCustomerJogKori.click();
-//        inputCustomerOrSupplierName.sendKeys(name);
-//        inputCustomerOrSupplierMobileNumber.sendKeys(phone);
-//        inputPurberBaki.click();
-//        Actions action = new Actions(driver);
-//        action.sendKeys("-12").perform();
-//        action.getActiveKeyboard().createKeyDown(10);
-//        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-//        driver.pressKey(new KeyEvent(AndroidKey.MINUS));
-//        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
-//        driver.pressKey(new KeyEvent(AndroidKey.EQUALS));
-//        Thread.sleep(2000);
-//        (new TouchAction(driver)).tap(PointOption.point(184, 2536)).perform();
-//        Thread.sleep(2000);
-//        (new TouchAction(driver)).tap(PointOption.point(1251, 2536)).perform();
-//        Thread.sleep(2000);
-//        (new TouchAction(driver)).tap(PointOption.point(897, 2536)).perform();
-//        Thread.sleep(2000);
-//        (new TouchAction(driver)).tap(PointOption.point(1256, 3024)).perform();
-//        Thread.sleep(4000);
-//        btnNischit.click();
-//        return alertSnackbarText.getText();
-//    }
-
+    @Step("Create customer with valid name {0}, existing number {1}")
     public String addCustomerWithExistingPhone(String name, String existingPhone) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -431,6 +414,7 @@ public class TallyScreen {
      *  Supplier add
      * -------------------------------------
      */
+    @Step("Create supplier with valid name {0}")
     public String addSupplierWithNameWithoutNumber(String name) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -441,6 +425,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier with valid name {0}, valid number {1}")
     public String addSupplierWithNameNumber(String name, String number) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -451,6 +436,7 @@ public class TallyScreen {
         btnNischit.click();
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
+
 
     public String addSupplierFromPhoneBook() {
         tabTally.click();
@@ -463,6 +449,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier with valid name {0}, valid number {1} and jer {2}")
     public String addSupplierWithJer(String name, String number, String jer) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -476,6 +463,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier from phonebook with valid name,valid number and jer {0}")
     public String addSupplierFromPhoneBookWithJer(String jer) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -488,6 +476,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier with name {0}, number {1} and jer {2} along with photo and date")
     public String addSupplierWithJerPhotoAndDate(String name, String number, String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -509,6 +498,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier from phonebook with jer {0} along with photo and date")
     public String addSupplierFromPhoneBookWithJerPhotoAndDate(String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -529,6 +519,7 @@ public class TallyScreen {
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
     }
 
+    @Step("Create supplier with invalid name {0}, valid number {1}")
     public boolean addSupplierWithInvalidNameValidPhone(String invalidName, String phone) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -541,6 +532,7 @@ public class TallyScreen {
         return isBtnEnabled;
     }
 
+    @Step("Create supplier with valid name {0}, invalid number {1}")
     public String addSupplierWithValidNameInvalidPhone(String name, String invalidPhone) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -555,6 +547,7 @@ public class TallyScreen {
         return errorAlert;
     }
 
+    @Step("Create supplier with valid name {0}, existing valid number {1}")
     public String addSupplierWithExistingPhone(String name, String existingPhone) {
         tabTally.click();
         btnCustomerJogKori.click();
@@ -574,6 +567,7 @@ public class TallyScreen {
      *  Update Dilam/pelam of customer
      * -------------------------------------
      */
+    @Step("Update customer dilam beshi {0}, pelam kom {1}")
     public String customerDilamBeshiPelamKom(String dilam, String pelam, String biboron) throws InterruptedException {
         tabTally.click();
         btnFilter.click();
@@ -592,6 +586,7 @@ public class TallyScreen {
         return textMotPaboValue.getText();
     }
 
+    @Step("Update customer dilam kom {0}, pelam beshi {1}")
     public String customerDilamKomPelamBeshi(String dilam, String pelam, String biboron) throws InterruptedException {
         tabTally.click();
         btnClearFilter.click();
@@ -609,6 +604,7 @@ public class TallyScreen {
         return textMotPaboValue.getText();
     }
 
+    @Step("Update customer dilam {0}, pelam {1} soman")
     public String customerDilamPelamSoman(String dilam, String pelam, String biboron) throws InterruptedException {
         tabTally.click();
         objectCustomerDetailsContainer.get(0).click();
@@ -629,6 +625,7 @@ public class TallyScreen {
      *  Update Dilam/pelam of supplier
      * -------------------------------------
      */
+    @Step("Update supplier dilam beshi {0}, pelam kom {1}")
     public String supplierDilamBeshiPelamKom(String dilam, String pelam, String biboron) throws InterruptedException {
         tabTally.click();
         btnFilter.click();
@@ -647,6 +644,7 @@ public class TallyScreen {
         return textMotPaboValue.getText();
     }
 
+    @Step("Update supplier dilam kom {0}, pelam beshi {1}")
     public String supplierDilamKomPelamBeshi(String dilam, String pelam, String cashBecha, String biboron) throws InterruptedException {
         tabTally.click();
         btnClearFilter.click();
@@ -667,6 +665,7 @@ public class TallyScreen {
         return textMotPaboValue.getText();
     }
 
+    @Step("Update supplier dilam {0}, pelam {1} soman")
     public String supplierDilamPelamSoman(String dilam, String pelam, String biboron) throws InterruptedException {
         tabTally.click();
         objectCustomerDetailsContainer.get(0).click();
@@ -697,6 +696,7 @@ public class TallyScreen {
         return motPaboValue;
     }
 
+    @Step("search with a name {0} that exist")
     public int searchWithNameThatExist(String name) {
         tabTally.click();
         inputSearchBox.sendKeys(name);
@@ -706,6 +706,7 @@ public class TallyScreen {
         return customerLength;
     }
 
+    @Step("search with a name {0} that doesn't exist")
     public boolean searchWithNameThatDontExist(String name) {
         tabTally.click();
         inputSearchBox.sendKeys(name);
@@ -981,6 +982,7 @@ public class TallyScreen {
         Thread.sleep(2000);
         btnKebabMenuOptions.get(1).click();
         objectTransactionItems.get(1).click();
+        Utils.saveScreenshot("Before clicking delete button", driver);
         btnDeleteLenden.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         textDeleteAlertMessage.getText();
@@ -994,6 +996,7 @@ public class TallyScreen {
      *  Edit/Delete Customer/Supplier
      * -------------------------------------
      */
+    @Step("Disabled submit button on customer edit page with invalid name {0}")
     public boolean buttonInactiveOnInvalidName(String invalidName) throws InterruptedException {
         objectCustomerDetailsContainer.get(0).click();
         btnKebab.click();
@@ -1004,28 +1007,26 @@ public class TallyScreen {
         boolean isBtnEnabled = btnNischit.isEnabled();
         Utils.saveScreenshot("Button Inactive On Invalid Name", driver);
         btnBack.click();
-        Thread.sleep(2000);
-        btnBack.click();
         return isBtnEnabled;
     }
 
+    @Step("Disabled submit button on customer edit page with invalid number {0}")
     public boolean buttonInactiveOnInvalidPhone(String invalidPhone) throws InterruptedException {
-        objectCustomerDetailsContainer.get(0).click();
         btnKebab.click();
+        Thread.sleep(2000);
         btnKebabMenuOptions.get(btnKebabMenuOptions.size() - 2).click();
         inputCustomerOrSupplierMobileNumber.clear();
         inputCustomerOrSupplierMobileNumber.sendKeys(invalidPhone);
         boolean isBtnEnabled = btnNischit.isEnabled();
         Utils.saveScreenshot("Button Inactive On Invalid Phone", driver);
         btnBack.click();
-        Thread.sleep(2000);
-        btnBack.click();
         return isBtnEnabled;
     }
 
+    @Step("Enabled submit button on customer edit page with valid name {0} and valid phone {1}")
     public String buttonActiveOnValidNamePhone(String name, String phone) throws InterruptedException {
-        objectCustomerDetailsContainer.get(0).click();
         btnKebab.click();
+        Thread.sleep(2000);
         btnKebabMenuOptions.get(btnKebabMenuOptions.size() - 2).click();
         inputCustomerOrSupplierNameInEditPage.clear();
         inputCustomerOrSupplierNameInEditPage.sendKeys(name);
@@ -1063,6 +1064,7 @@ public class TallyScreen {
      *  Record share Medium Customer/Supplier
      * -------------------------------------
      */
+    @Step("Search with a existing customer name {0} and update dilam {1} to share in messenger")
     public String shareRecordInImo(String existingCustomerName, String dilam) {
         inputSearchBox.sendKeys(existingCustomerName);
         objectCustomerDetailsContainer.get(0).click();

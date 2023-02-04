@@ -43,7 +43,7 @@ public class Setup {
     }
 
     @AfterMethod
-    public void isFailed(ITestResult result) {
+    public void afterEveryTest(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
                 Utils.saveScreenshot("After test failed Screenshot", driver);

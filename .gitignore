@@ -5,9 +5,6 @@
 build
 /build
 build/
-allure-results
-/allure-results
-allure-results/
 src/main
 .env
 

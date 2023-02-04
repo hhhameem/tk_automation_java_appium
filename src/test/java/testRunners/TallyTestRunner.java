@@ -1,6 +1,7 @@
 package testRunners;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import io.qameta.allure.Description;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -32,6 +33,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------
      */
     @Test(priority = 1)
+    @Description("Create customer with valid name only")
     public void addCustomerWithNameWithoutNumber() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerWithNameWithoutNumber("Customer With Name only");
@@ -40,6 +42,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 2)
+    @Description("Create customer with valid name and valid number")
     public void addCustomerWithNameNumber() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerWithNameNumber("Kyle simp", Utils.randomPhoneNumber());
@@ -48,6 +51,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 3)
+    @Description("Create customer From phonebook with valid name and valid number")
     public void addCustomerFromPhoneBook() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerFromPhoneBook();
@@ -56,6 +60,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 4)
+    @Description("Create customer with valid name, valid number and positive jer")
     public void addCustomerWithJer() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerWithJer("Ross tylar", Utils.randomPhoneNumber(), "12");
@@ -64,6 +69,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 5)
+    @Description("Create customer from phonebook with valid name, valid number and positive jer")
     public void addCustomerFromPhoneBookWithJer() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerFromPhoneBookWithJer("5");
@@ -72,6 +78,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 6)
+    @Description("Create customer with valid name, valid number, positive jer, with photo and current date")
     public void addCustomerWithJerPhotoDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerWithJerPhotoDate("Hamim", "01953471217", "3");
@@ -80,6 +87,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 7)
+    @Description("Create customer from phonebook with valid name, valid number, positive jer, with photo and current date")
     public void addCustomerFromPhoneBookWithJerPhotoDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addCustomerFromPhoneBookWithJerPhotoDate("2");
@@ -88,6 +96,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 8)
+    @Description("Attempt to create customer with invalid name, valid number. Customer should not be created and confirm button should be disabled")
     public void addCustomerWithInvalidNameValidPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isBtnEnabled = tScreen.addCustomerWithInvalidNameValidPhone("hh", Utils.randomPhoneNumber());
@@ -96,6 +105,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 9)
+    @Description("Attempt to create customer from with valid name, invalid number. Customer should not be created and error message should pop up")
     public void addCustomerWithValidNameInvalidPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addCustomerWithValidNameInvalidPhone("Piya Roy", "011");
@@ -104,6 +114,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 10)
+    @Description("Attempt to create customer from with valid name and valid existing number. Customer should not be created and error message should pop up")
     public void addCustomerWithExistingPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addCustomerWithExistingPhone("Asim Kha", "01953471217");
@@ -117,6 +128,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------
      */
     @Test(priority = 11)
+    @Description("Create supplier from phonebook with valid name")
     public void addSupplierWithNameWithoutNumber() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierWithNameWithoutNumber("Supplier With Name only");
@@ -125,6 +137,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 12)
+    @Description("Create supplier with valid name and valid number")
     public void addSupplierWithNameNumber() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierWithNameNumber("Rizwan", "01517169846");
@@ -134,6 +147,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 13)
+    @Description("Create supplier from phonebook with valid name, valid number")
     public void addSupplierFromPhoneBook() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierFromPhoneBook();
@@ -142,6 +156,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 14)
+    @Description("Create supplier with valid name, valid number and positive jer")
     public void addSupplierWithJer() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierWithJer("Hussain", Utils.randomPhoneNumber(), "4");
@@ -150,6 +165,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 15)
+    @Description("Create supplier from phonebook with valid name, valid number, positive jer")
     public void addSupplierFromPhoneBookWithJer() {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierFromPhoneBookWithJer("5");
@@ -158,6 +174,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 16)
+    @Description("Create supplier with valid name, valid number, positive jer, with photo and current date")
     public void addSupplierWithJerPhotoAndDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierWithJerPhotoAndDate("Aila Mix", Utils.randomPhoneNumber(), "7");
@@ -166,6 +183,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 17)
+    @Description("Create supplier from phonebook with valid name, valid number, positive jer, with photo and current date")
     public void addSupplierFromPhoneBookWithJerPhotoAndDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String confirmationMessage = tScreen.addSupplierFromPhoneBookWithJerPhotoAndDate("3");
@@ -174,6 +192,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 18)
+    @Description("Attempt to create supplier with invalid name, valid number. Supplier should not be created and confirm button should be disabled")
     public void addSupplierWithInvalidNameValidPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isBtnEnabled = tScreen.addSupplierWithInvalidNameValidPhone("xx", Utils.randomPhoneNumber());
@@ -182,6 +201,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 19)
+    @Description("Attempt to create supplier with valid name, invalid number. Supplier should not be created and error message should pop up")
     public void addSupplierWithValidNameInvalidPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addSupplierWithValidNameInvalidPhone("Kim Ra yu", "011");
@@ -190,6 +210,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 20)
+    @Description("Attempt to create supplier from with valid name and valid existing number. Supplier should not be created and error message should pop up")
     public void addSupplierWithExistingPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addSupplierWithExistingPhone("Park Na", "01517169846");
@@ -204,6 +225,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------
      */
     @Test(priority = 21)
+    @Description("Update dilam pelam of customer with dilam beshi and pelam kom")
     public void customerDilamBeshiPelamKom() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.customerDilamBeshiPelamKom("12", "5", Utils.randomFruitName());
@@ -212,6 +234,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 22)
+    @Description("Update dilam pelam of customer with dilam kom and pelam beshi")
     public void customerDilamKomPelamBeshi() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.customerDilamKomPelamBeshi("2", "5", Utils.randomFruitName());
@@ -220,6 +243,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 23)
+    @Description("Update dilam pelam of customer with dilam and pelam soman")
     public void customerDilamPelamSoman() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.customerDilamPelamSoman("6", "6", Utils.randomFruitName());
@@ -233,6 +257,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------
      */
     @Test(priority = 24)
+    @Description("Update dilam pelam of supplier with dilam beshi and pelam kom")
     public void supplierDilamBeshiPelamKom() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.supplierDilamBeshiPelamKom("11", "1", Utils.randomFruitName());
@@ -241,6 +266,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 25)
+    @Description("Update dilam pelam of supplier with dilam kom and pelam beshi")
     public void supplierDilamKomPelamBeshi() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.supplierDilamKomPelamBeshi("9", "13", "11", Utils.randomFruitName());
@@ -249,6 +275,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 26)
+    @Description("Update dilam pelam of supplier with dilam and pelam soman")
     public void supplierDilamPelamSoman() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.supplierDilamPelamSoman("1", "1", Utils.randomFruitName());
@@ -262,6 +289,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------------
      */
     @Test(priority = 27)
+    @Description("Click eye button and assert that all numbers are replaced with ---")
     public void clickEyeButton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String motPaboValue = tScreen.clickEyeButton();
@@ -270,6 +298,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 28)
+    @Description("Search with a customer or supplier name that exist")
     public void searchWithNameThatExist() {
         tScreen = new TallyScreen(driver);
         int customerLength = tScreen.searchWithNameThatExist("Hamim");
@@ -278,6 +307,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 29)
+    @Description("Search with a customer or supplier name that doesn't exist")
     public void searchWithNameThatDontExist() {
         tScreen = new TallyScreen(driver);
         boolean doesCustomerExist = tScreen.searchWithNameThatDontExist("Wafi");
@@ -286,6 +316,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 30)
+    @Description("Click download button and confirm that a file is downloaded")
     public void clickDownloadButton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isExternalLayoutVisible = tScreen.clickDownloadButton(driver);
@@ -294,6 +325,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 31)
+    @Description("Click ajker becha text and confirm that navigate to the Doinik hisab page")
     public void clickAjkerBecha() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String doinikHisab = tScreen.clickAjkerBecha();
@@ -307,6 +339,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------------
      */
     @Test(priority = 32)
+    @Description("Add filter: Customer, kom -> beshi, puraton -> notun")
     public void customerKomPuraton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.customerKomPuraton();
@@ -314,6 +347,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 33)
+    @Description("Add filter: Customer, kom -> beshi, notun -> puraton ")
     public void customerKomNotun() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.customerKomNotun();
@@ -321,6 +355,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 34)
+    @Description("Add filter: Customer, beshi -> kom, notun -> puraton ")
     public void customerBeshiNotun() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.customerBeshiNotun();
@@ -328,6 +363,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 35)
+    @Description("Add filter: Customer, beshi -> kom, puraton -> notun")
     public void customerBeshipuraton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.customerBeshipuraton();
@@ -335,6 +371,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 36)
+    @Description("Add filter: Supplier, kom -> beshi, puraton -> notun")
     public void supplierKomPuraton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.supplierKomPuraton();
@@ -342,6 +379,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 37)
+    @Description("Add filter: Supplier, kom -> beshi, notun -> puraton")
     public void supplierKomNotun() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.supplierKomNotun();
@@ -349,6 +387,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 38)
+    @Description("Add filter: Supplier, beshi -> Kom, notun -> puraton")
     public void supplierBeshiNotun() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.supplierBeshiNotun();
@@ -356,6 +395,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 39)
+    @Description("Add filter: Supplier, beshi -> kom, puraton -> notun")
     public void supplierBeshipuraton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.supplierBeshipuraton();
@@ -369,6 +409,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------------
      */
     @Test(priority = 40)
+    @Description("Confirm that Share Kori button works in tagda pathai page")
     public void shareKoriInTagadaPathai() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isExternalLayoutVisible = tScreen.shareKoriInTagadaPathai(driver);
@@ -377,6 +418,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 41)
+    @Description("Confirm that Tally Message Kini button works in tagda pathai page")
     public void tallyMessageKiniInTagadaPathai() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String tallyMessageKiniText = tScreen.tallyMessageKiniInTagadaPathai();
@@ -385,6 +427,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 42)
+    @Description("Confirm that Copy Link button works in tagda pathai page")
     public void copyLinkInTagadaPathai() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String confirmAlert = tScreen.copyLinkInTagadaPathai();
@@ -393,6 +436,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 43)
+    @Description("Confirm that tagada pathai batil button works in tagda pathai page when sending Tagada message")
     public void tagadaPathaiBatil() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.tagadaPathaiBatil();
@@ -401,6 +445,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 44)
+    @Description("Confirm that Tagada message can be successfully sent")
     public void tagadaPathaiConfirm() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textSMSCount = tScreen.tagadaPathaiConfirm();
@@ -415,6 +460,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------
      */
     @Test(priority = 45)
+    @Description("Confirm that tagada pathai button is disabled in customer report page when Pabo is smaller than 1")
     public void tagadaPathaiDisabledInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String isClickable = tScreen.tagadaPathaiDisabledInCustomerReport();
@@ -423,6 +469,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 46)
+    @Description("Confirm that tagada pathai option is available in Kebab menu when Pabo is smaller than 1")
     public void tagadaPathaiExistInKebabMenu() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textTagadaSend = tScreen.tagadaPathaiExistInKebabMenu();
@@ -431,6 +478,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 47)
+    @Description("Confirm that tagada pathai button is enabled in customer report page when Pabo is greater than 0")
     public void tagadaPathaiEnabledInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String isClickable = tScreen.tagadaPathaiEnabledInCustomerReport();
@@ -440,6 +488,7 @@ public class TallyTestRunner extends Setup {
 
     //TODO Need to change priority
     @Test(priority = 48)
+    @Description("Cancel the info toast in customer report page when entering for the first time")
     public void cancelInfoInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean doesExist = tScreen.cancelInfoInCustomerReport();
@@ -448,6 +497,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 49)
+    @Description("Confirm that Report share Toggle is working in customer report page")
     public void reportShareInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String isChecked = tScreen.reportShareInCustomerReport();
@@ -456,6 +506,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 50)
+    @Description("Confirm that Transaction history is clickable in customer report page only when the transaction is update of dilam or pelam")
     public void isLendenClickableInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String isClickable = tScreen.isLendenClickableInCustomerReport();
@@ -464,6 +515,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 51)
+    @Description("Confirm that report download is working with 30 days option in customer report page")
     public void reportDownloadInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isExternalLayoutVisible = tScreen.reportDownloadInCustomerReport(driver);
@@ -472,6 +524,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 52)
+    @Description("Confirm that report download is working with custome date selection feature in customer report page")
     public void reportDownloadWithDateInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isExternalLayoutVisible = tScreen.reportDownloadWithDateInCustomerReport(driver);
@@ -480,6 +533,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 53)
+    @Description("Confirm that Transaction history can be edited in customer report page only when the transaction is update of dilam or pelam")
     public void editLendenInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         Utils.swipeUp(driver, 1000);
@@ -488,6 +542,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 54)
+    @Description("Confirm that Transaction history can be edited in customer report page only when the transaction is update of dilam or pelam")
     public void deleteLendenInCustomerReport() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textConfirmMessage = tScreen.deleteLendenInCustomerReport();
@@ -501,6 +556,7 @@ public class TallyTestRunner extends Setup {
      * ------------------------------------------
      */
     @Test(priority = 55)
+    @Description("Confirm that submit button is inactive when the customer name is invalid in customer info edit page")
     public void buttonInactiveOnInvalidName() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isBtnEnabled = tScreen.buttonInactiveOnInvalidName("hh");
@@ -509,6 +565,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 56)
+    @Description("Confirm that submit button is inactive when the customer phone is invalid in customer info edit page")
     public void buttonInactiveOnInvalidPhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         boolean isBtnEnabled = tScreen.buttonInactiveOnInvalidPhone("011111111111111111");
@@ -517,6 +574,8 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 57)
+    @Description("Confirm that submit button is active when the customer name is invalid in customer info edit page " +
+            "and customer info is updated")
     public void buttonActiveOnValidNamePhone() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textConfirmationMessage = tScreen.buttonActiveOnValidNamePhone("name Edited", "01323478832");
@@ -525,6 +584,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 58)
+    @Description("Confirm that customer/supplier deletion can be canceled in customer/supplier delete page")
     public void cancelDelete() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         tScreen.cancelDelete();
@@ -533,6 +593,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 59)
+    @Description("Confirm that customer/supplier can be deleted")
     public void confirmDelete() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textConfirmationMessage = tScreen.confirmDelete();
@@ -546,6 +607,7 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------
      */
     @Test(priority = 60)
+    @Description("Confirm that when lenden record shared in imo and imo is not installed in phone an error pops up")
     public void shareRecordInImo() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textAlertUnavailableApp = tScreen.shareRecordInImo("Hamim", "12");
@@ -554,6 +616,7 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 61)
+    @Description("Confirm that lenden record can be shared in messenger given that the app is installed and in dilam/pelam page it shows that last record was shared thorugh messenger when the toggle button is inactive")
     public void shareRecordInMessenger() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textrecordSharedMedium = tScreen.shareRecordInMessenger();
