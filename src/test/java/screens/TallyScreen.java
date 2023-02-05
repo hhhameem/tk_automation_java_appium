@@ -98,6 +98,10 @@ public class TallyScreen {
     List<WebElement> objectCustomerInfoContainer;
     @FindBy(id = "com.progoti.tallykhata:id/tvAmount")
     WebElement textCustomerAndSupplierAmountValue;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[1]")
+    WebElement textSupplierName;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
+    WebElement textCustomerName;
 
     //    Tally Main page Modal(Filter) elements
     @FindBy(id = "com.progoti.tallykhata:id/ivCheckCustomer")
@@ -742,7 +746,7 @@ public class TallyScreen {
      *  Filter
      * -------------------------------------
      */
-    public void customerKomPuraton() throws InterruptedException {
+    public String customerKomPuraton() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxCustomer.click();
@@ -751,37 +755,45 @@ public class TallyScreen {
         inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textCustomerName.getText();
     }
 
-    public void customerKomNotun() throws InterruptedException {
+    public String customerKomNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxNotunToPuraton.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textCustomerName.getText();
     }
 
-    public void customerBeshiNotun() throws InterruptedException {
+    public String customerBeshiNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxBeshiToKom.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textCustomerName.getText();
     }
 
-    public void customerBeshipuraton() throws InterruptedException {
+    public String customerBeshipuraton() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textCustomerName.getText();
     }
 
-    public void supplierKomPuraton() throws InterruptedException {
+    public String supplierKomPuraton() throws InterruptedException {
         tabTally.click();
         btnClearFilter.click();
         Thread.sleep(1000);
@@ -791,35 +803,43 @@ public class TallyScreen {
         inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textSupplierName.getText();
     }
 
-    public void supplierKomNotun() throws InterruptedException {
+    public String supplierKomNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxNotunToPuraton.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textSupplierName.getText();
     }
 
-    public void supplierBeshiNotun() throws InterruptedException {
+    public String supplierBeshiNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxBeshiToKom.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textSupplierName.getText();
     }
 
-    public void supplierBeshipuraton() throws InterruptedException {
+    public String supplierBeshipuraton() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         Thread.sleep(3000);
-        btnClearFilter.click();
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textSupplierName.getText();
     }
 
     /*
@@ -881,7 +901,6 @@ public class TallyScreen {
         btnFilter.click();
         inputCheckBoxCustomer.click();
         btnNischit.click();
-        //TODO need to change the index number according to serial of the customer
         objectCustomerDetailsContainer.get(objectCustomerDetailsContainer.size() - 1).click();
         btnKebab.click();
         Thread.sleep(2000);
@@ -929,7 +948,6 @@ public class TallyScreen {
     }
 
     public String isLendenClickableInCustomerReport() {
-        //TODO need to change the index number according to serial
         String isClickable = objectTransactionItems.get(0).getAttribute("clickable");
         return isClickable;
     }
@@ -964,7 +982,6 @@ public class TallyScreen {
     }
 
     public String editLendenInCustomerReport() throws InterruptedException {
-        //TODO need to change the index number according to serial adn need to calculate the mot pabo or mot debo.
         objectTransactionItems.get(objectTransactionItems.size() - 1).click();
         btnEditLendenJer.click();
         inputPurberBaki.clear();
