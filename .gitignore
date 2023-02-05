@@ -2,9 +2,5 @@
 .gradle/
 .idea
 .idea/
-build
-/build
-build/
-src/main
 .env
 

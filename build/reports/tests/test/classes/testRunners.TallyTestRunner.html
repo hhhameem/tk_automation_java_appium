@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class testRunners.TallyTestRunner</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class testRunners.TallyTestRunner</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/testRunners.html">testRunners</a> &gt; TallyTestRunner</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">61</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">8m38.93s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">98%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="copyLinkInTagadaPathai"></a>
+<h3 class="failures">copyLinkInTagadaPathai</h3>
+<span class="code">
+<pre>org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:125)
+	at app//io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4.click(&lt;generated&gt;)
+	at app//screens.TallyScreen.copyLinkInTagadaPathai(TallyScreen.java:851)
+	at app//testRunners.TallyTestRunner.copyLinkInTagadaPathai(TallyTestRunner.java:433)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.16.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at app//org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at app//org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at app//org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at app//org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at app//org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at app//org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at app//org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base@11.0.16.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at app//org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at app//org.testng.TestRunner.run(TestRunner.java:602)
+	at app//org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at app//org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at app//org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at app//org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at app//org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at app//org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at app//org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at app//org.testng.TestNG.runSuitesSequentially(TestNG.java:1251)
+	at app//org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at app//org.testng.TestNG.runSuites(TestNG.java:1099)
+	at app//org.testng.TestNG.run(TestNG.java:1067)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:146)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:91)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.16.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@71ca6a60 (tried for 1 second(s) with 500 milliseconds interval)
+	at app//org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at app//org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:98)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:118)
+	... 51 more
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.7.0', revision: '0a5b49d16f'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [fb91e126-1463-481f-91b4-d356b4a40d64, findElement {using=xpath, value=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView}]
+Capabilities {appium:app: H:\apk\tallykhata-5.1.0-tes..., appium:appActivity: com.progoti.tallykhata.v2.M..., appium:appPackage: com.progoti.tallykhata, appium:autoGrantPermissions: true, appium:databaseEnabled: false, appium:desired: {app: H:\apk\tallykhata-5.1.0-tes..., appActivity: com.progoti.tallykhata.v2.M..., appPackage: com.progoti.tallykhata, autoGrantPermissions: true, deviceName: Samsung Galaxy M62, fullReset: true, os: 13, platformName: android, uiautomator2ServerInstallTimeout: 90000, uuid: RF8R3105FNJ}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-M625F, appium:deviceName: RF8R3105FNJ, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: RF8R3105FNJ, appium:fullReset: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:os: 13, appium:pixelRatio: 2.625, appium:platformVersion: 13, appium:statBarHeight: 92, appium:takesScreenshot: true, appium:uiautomator2ServerInstallTimeout: 90000, appium:uuid: RF8R3105FNJ, appium:viewportRect: {height: 2216, left: 0, top: 92, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: fb91e126-1463-481f-91b4-d356b4a40d64
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.16.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at app//io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:262)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at app//io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:136)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$0(AppiumElementLocator.java:119)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:171)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:164)
+	at app//org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	... 53 more
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addCustomerFromPhoneBook</td>
+<td class="success">6.608s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerFromPhoneBookWithJer</td>
+<td class="success">9.039s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerFromPhoneBookWithJerPhotoDate</td>
+<td class="success">17.172s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithExistingPhone</td>
+<td class="success">6.515s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithInvalidNameValidPhone</td>
+<td class="success">5.662s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithJer</td>
+<td class="success">9.910s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithJerPhotoDate</td>
+<td class="success">17.973s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithNameNumber</td>
+<td class="success">6.611s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithNameWithoutNumber</td>
+<td class="success">5.973s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCustomerWithValidNameInvalidPhone</td>
+<td class="success">7.319s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierFromPhoneBook</td>
+<td class="success">6.990s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierFromPhoneBookWithJer</td>
+<td class="success">8.095s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierFromPhoneBookWithJerPhotoAndDate</td>
+<td class="success">16.536s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithExistingPhone</td>
+<td class="success">6.437s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithInvalidNameValidPhone</td>
+<td class="success">6.812s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithJer</td>
+<td class="success">8.669s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithJerPhotoAndDate</td>
+<td class="success">17.579s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithNameNumber</td>
+<td class="success">7.567s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithNameWithoutNumber</td>
+<td class="success">6.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addSupplierWithValidNameInvalidPhone</td>
+<td class="success">7.054s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">buttonActiveOnValidNamePhone</td>
+<td class="success">11.860s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">buttonInactiveOnInvalidName</td>
+<td class="success">8.774s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">buttonInactiveOnInvalidPhone</td>
+<td class="success">6.358s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">cancelDelete</td>
+<td class="success">8.688s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">cancelInfoInCustomerReport</td>
+<td class="success">17.222s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">clickAjkerBecha</td>
+<td class="success">2.514s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">clickDownloadButton</td>
+<td class="success">4.674s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">clickEyeButton</td>
+<td class="success">3.683s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">confirmDelete</td>
+<td class="success">6.610s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">copyLinkInTagadaPathai</td>
+<td class="failures">15.120s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">customerBeshiNotun</td>
+<td class="success">6.366s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerBeshipuraton</td>
+<td class="success">6.334s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerDilamBeshiPelamKom</td>
+<td class="success">13.238s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerDilamKomPelamBeshi</td>
+<td class="success">12.943s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerDilamPelamSoman</td>
+<td class="success">9.078s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerKomNotun</td>
+<td class="success">6.173s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">customerKomPuraton</td>
+<td class="success">8.813s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteLendenInCustomerReport</td>
+<td class="success">9.888s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">editLendenInCustomerReport</td>
+<td class="success">11.643s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">isLendenClickableInCustomerReport</td>
+<td class="success">0.165s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reportDownloadInCustomerReport</td>
+<td class="success">4.878s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reportDownloadWithDateInCustomerReport</td>
+<td class="success">10.046s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">reportShareInCustomerReport</td>
+<td class="success">1.929s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">searchWithNameThatDontExist</td>
+<td class="success">18.220s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">searchWithNameThatExist</td>
+<td class="success">3.754s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shareKoriInTagadaPathai</td>
+<td class="success">7.116s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shareRecordInImo</td>
+<td class="success">8.834s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shareRecordInMessenger</td>
+<td class="success">10.257s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierBeshiNotun</td>
+<td class="success">6.212s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierBeshipuraton</td>
+<td class="success">7.471s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierDilamBeshiPelamKom</td>
+<td class="success">11.846s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierDilamKomPelamBeshi</td>
+<td class="success">14.093s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierDilamPelamSoman</td>
+<td class="success">9.066s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierKomNotun</td>
+<td class="success">6.213s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">supplierKomPuraton</td>
+<td class="success">9.453s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tagadaPathaiBatil</td>
+<td class="success">1.259s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tagadaPathaiConfirm</td>
+<td class="success">8.779s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tagadaPathaiDisabledInCustomerReport</td>
+<td class="success">11.368s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tagadaPathaiEnabledInCustomerReport</td>
+<td class="success">4.448s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tagadaPathaiExistInKebabMenu</td>
+<td class="success">6.871s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tallyMessageKiniInTagadaPathai</td>
+<td class="success">2.146s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>addCustomerWithNameWithoutNumber &quot;Customer With Name only&quot;- ?? ?????? ??? ??? ??????
+addCustomerWithNameWithoutNumber &quot;Kyle simp&quot;- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBook &quot;Ajij Dulavai&quot;- ?? ?????? ??? ??? ??????
+addCustomerWithJer &quot;Ross tylar&quot;- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBookWithJer &quot;Abdullah vai&quot;- ?? ?????? ??? ??? ??????
+addCustomerWithJerPhotoDate &quot;Hamim&quot;- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBookWithJerPhotoDate &quot;Abbu&quot;- ?? ?????? ??? ??? ??????
+addCustomerWithInvalidNameValidPhone false
+addCustomerWithValidNameInvalidPhone    ?????? ????? ???? ???
+addCustomerWithExistingPhone    ?? ?????? ??????? ???????? ??? ????? ???
+addSupplierWithNameWithoutNumber &quot;Supplier With Name only&quot;- ?? ?????? ??? ??? ??????
+addSupplierWithNameNumber &quot;Rizwan&quot;- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBook &quot;Abbu&quot;- ?? ?????? ??? ??? ??????
+addSupplierWithJer &quot;Hussain&quot;- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBookWithJer &quot;Aaaaaa&quot;- ?? ?????? ??? ??? ??????
+addSupplierWithJerPhotoAndDate &quot;Aila Mix&quot;- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBookWithJerPhotoAndDate &quot;Aaaaa&quot;- ?? ?????? ??? ??? ??????
+addSupplierWithInvalidNameValidPhone false
+addSupplierWithValidNameInvalidPhone    ?????? ????? ???? ???
+addSupplierWithExistingPhone    ?? ?????? ??????? ???????? ??? ????? ???
+customerDilamBeshiPelamKom ??
+customerDilamKomPelamBeshi ??
+customerDilamPelamSoman ??
+supplierDilamBeshiPelamKom ??
+supplierDilamKomPelamBeshi ??
+supplierDilamPelamSoman ??
+clickEyeButton - - -
+searchWithNameThatExist 1
+searchWithNameThatDontExist true
+jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj true
+clickDownloadButton true
+clickAjkerBecha ????? ?????
+customerKomPuraton 
+customerKomNotun 
+customerBeshiNotun 
+customerBeshipuraton 
+supplierKomPuraton 
+supplierKomNotun 
+supplierBeshiNotun 
+supplierBeshipuraton 
+share kori in tagada pathai true
+shareKoriInTagadaPathai true
+tallyMessageKiniInTagadaPathai ???? ????? ????
+tagadaPathaiBatil 
+tagadaPathaiConfirm ???????: ?
+tagadaPathaiDisabledInCustomerReport false
+tagadaPathaiExistInKebabMenu ?????? ?????? ????? ?????
+tagadaPathaiEnabledInCustomerReport true
+cancelInfoInCustomerReport false
+reportShareInCustomerReport false
+isLendenClickableInCustomerReport true
+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr true
+reportDownloadInCustomerReport true
+mmmmmmmmmmmmmmmmmmmmmmmmmmmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr true
+reportDownloadWithDateInCustomerReport true
+editLendenInCustomerReport ??
+deleteLendenInCustomerReport ???????? ????? ??? ??????
+buttonInactiveOnInvalidName false
+buttonInactiveOnInvalidPhone false
+buttonActiveOnValidNamePhone ????????/??????????? ???? ????? ??? ??????
+cancelDelete 
+confirmDelete Customer With Name only ?? ???? ???? ????? ??? ??????
+shareRecordInImo ????? ??????? ??? ????
+???? ??????? ????? ???? ?
+shareRecordInMessenger ?????????
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Feb 5, 2023, 9:54:41 AM</p>
+</div>
+</div>
+</body>
+</html>
