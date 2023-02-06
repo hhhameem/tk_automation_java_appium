@@ -7,6 +7,13 @@
 * Appium Java Client `8.3.0` or higher
 * Appium Server `1.22.3-4` or higher
 
+# Dependency
+
+* Test need to run on real device as it needs contact book.
+* You have to have the first contact with valid number and name less than 3 character.
+* You have to have the second contact with invalid number and valid name.
+* You have to have at least 8 contact number on phonebook.
+
 ### How to run test and check the test report
 
 1. Start Appium server from appium server app.

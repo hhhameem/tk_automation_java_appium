@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testRunners.TallyTestRunner" tests="70" skipped="0" failures="1" errors="0" timestamp="2023-02-06T11:24:15" hostname="DESKTOP-JIFC5UQ" time="751.166">
+  <properties/>
+  <testcase name="addCustomerWithNameWithoutNumber" classname="testRunners.TallyTestRunner" time="6.805"/>
+  <testcase name="addCustomerWithNameNumber" classname="testRunners.TallyTestRunner" time="7.844"/>
+  <testcase name="addCustomerFromPhoneBook" classname="testRunners.TallyTestRunner" time="8.072"/>
+  <testcase name="addCustomerWithJer" classname="testRunners.TallyTestRunner" time="10.93"/>
+  <testcase name="addCustomerWithJerZero" classname="testRunners.TallyTestRunner" time="9.273"/>
+  <testcase name="addCustomerFromPhoneBookWithJer" classname="testRunners.TallyTestRunner" time="10.717"/>
+  <testcase name="addCustomerWithJerPhotoDate" classname="testRunners.TallyTestRunner" time="18.747"/>
+  <testcase name="addCustomerFromPhoneBookWithJerPhotoDate" classname="testRunners.TallyTestRunner" time="19.07"/>
+  <testcase name="addCustomerWithInvalidNameValidPhone" classname="testRunners.TallyTestRunner" time="6.226"/>
+  <testcase name="addCustomerWithValidNameInvalidPhone" classname="testRunners.TallyTestRunner" time="8.087"/>
+  <testcase name="addCustomerWithExistingPhone" classname="testRunners.TallyTestRunner" time="7.604"/>
+  <testcase name="addCustomerFromPhoneBookWithInvalidName" classname="testRunners.TallyTestRunner" time="6.101"/>
+  <testcase name="addCustomerFromPhoneBookWithInvalidNumber" classname="testRunners.TallyTestRunner" time="5.846"/>
+  <testcase name="addSupplierWithNameWithoutNumber" classname="testRunners.TallyTestRunner" time="7.056"/>
+  <testcase name="addSupplierWithNameNumber" classname="testRunners.TallyTestRunner" time="8.331"/>
+  <testcase name="addSupplierFromPhoneBook" classname="testRunners.TallyTestRunner" time="8.918"/>
+  <testcase name="addSupplierWithJer" classname="testRunners.TallyTestRunner" time="8.967"/>
+  <testcase name="addSupplierWithJerZero" classname="testRunners.TallyTestRunner" time="9.032"/>
+  <testcase name="addSupplierFromPhoneBookWithJer" classname="testRunners.TallyTestRunner" time="9.533"/>
+  <testcase name="addSupplierWithJerPhotoAndDate" classname="testRunners.TallyTestRunner" time="17.187"/>
+  <testcase name="addSupplierFromPhoneBookWithJerPhotoAndDate" classname="testRunners.TallyTestRunner" time="17.924"/>
+  <testcase name="addSupplierWithInvalidNameValidPhone" classname="testRunners.TallyTestRunner" time="7.319"/>
+  <testcase name="addSupplierWithValidNameInvalidPhone" classname="testRunners.TallyTestRunner" time="8.178"/>
+  <testcase name="addSupplierWithExistingPhone" classname="testRunners.TallyTestRunner" time="8.492"/>
+  <testcase name="addSupplierFromPhoneBookWithInvalidName" classname="testRunners.TallyTestRunner" time="6.688"/>
+  <testcase name="addSupplierFromPhoneBookWithInvalidNumber" classname="testRunners.TallyTestRunner" time="6.453"/>
+  <testcase name="customerDilamBeshiPelamKom" classname="testRunners.TallyTestRunner" time="16.622"/>
+  <testcase name="customerDilamKomPelamBeshi" classname="testRunners.TallyTestRunner" time="13.314"/>
+  <testcase name="customerDilamPelamSoman" classname="testRunners.TallyTestRunner" time="10.23"/>
+  <testcase name="supplierDilamBeshiPelamKom" classname="testRunners.TallyTestRunner" time="14.413"/>
+  <testcase name="supplierDilamKomPelamBeshi" classname="testRunners.TallyTestRunner" time="14.563"/>
+  <testcase name="supplierDilamPelamSoman" classname="testRunners.TallyTestRunner" time="12.617"/>
+  <testcase name="clickEyeButton" classname="testRunners.TallyTestRunner" time="4.043"/>
+  <testcase name="searchWithNameThatExist" classname="testRunners.TallyTestRunner" time="3.063"/>
+  <testcase name="searchWithNameThatDontExist" classname="testRunners.TallyTestRunner" time="17.594"/>
+  <testcase name="clickDownloadButton" classname="testRunners.TallyTestRunner" time="4.546"/>
+  <testcase name="clickAjkerBecha" classname="testRunners.TallyTestRunner" time="3.374"/>
+  <testcase name="customerKomPuraton" classname="testRunners.TallyTestRunner" time="8.846"/>
+  <testcase name="customerKomNotun" classname="testRunners.TallyTestRunner" time="6.58"/>
+  <testcase name="customerBeshiNotun" classname="testRunners.TallyTestRunner" time="6.66"/>
+  <testcase name="customerBeshipuraton" classname="testRunners.TallyTestRunner" time="6.633"/>
+  <testcase name="supplierKomPuraton" classname="testRunners.TallyTestRunner" time="9.75"/>
+  <testcase name="supplierKomNotun" classname="testRunners.TallyTestRunner" time="6.626"/>
+  <testcase name="supplierBeshiNotun" classname="testRunners.TallyTestRunner" time="6.478"/>
+  <testcase name="supplierBeshipuraton" classname="testRunners.TallyTestRunner" time="9.627"/>
+  <testcase name="shareKoriInTagadaPathai" classname="testRunners.TallyTestRunner" time="7.357"/>
+  <testcase name="tallyMessageKiniInTagadaPathai" classname="testRunners.TallyTestRunner" time="2.478"/>
+  <testcase name="copyLinkInTagadaPathai" classname="testRunners.TallyTestRunner" time="15.142">
+    <failure message="org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:125)
+	at app//io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4.click(&lt;generated&gt;)
+	at app//screens.TallyScreen.copyLinkInTagadaPathai(TallyScreen.java:965)
+	at app//testRunners.TallyTestRunner.copyLinkInTagadaPathai(TallyTestRunner.java:495)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.16.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at app//org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at app//org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at app//org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at app//org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at app//org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at app//org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at app//org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base@11.0.16.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at app//org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at app//org.testng.TestRunner.run(TestRunner.java:602)
+	at app//org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at app//org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at app//org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at app//org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at app//org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at app//org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at app//org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at app//org.testng.TestNG.runSuitesSequentially(TestNG.java:1251)
+	at app//org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at app//org.testng.TestNG.runSuites(TestNG.java:1099)
+	at app//org.testng.TestNG.run(TestNG.java:1067)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:146)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:91)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.16.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@5a5d16c2 (tried for 1 second(s) with 500 milliseconds interval)
+	at app//org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at app//org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:98)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:118)
+	... 51 more
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.7.0', revision: '0a5b49d16f'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [1528b016-1752-4d1f-bba5-0cdc1f0f06dc, findElement {using=xpath, value=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView}]
+Capabilities {appium:app: H:\apk\tallykhata-5.1.0-tes..., appium:appActivity: com.progoti.tallykhata.v2.M..., appium:appPackage: com.progoti.tallykhata, appium:autoGrantPermissions: true, appium:databaseEnabled: false, appium:desired: {app: H:\apk\tallykhata-5.1.0-tes..., appActivity: com.progoti.tallykhata.v2.M..., appPackage: com.progoti.tallykhata, autoGrantPermissions: true, deviceName: Samsung Galaxy M62, fullReset: true, os: 13, platformName: android, uiautomator2ServerInstallTimeout: 90000, uuid: RF8R3105FNJ}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-M625F, appium:deviceName: RF8R3105FNJ, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: RF8R3105FNJ, appium:fullReset: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:os: 13, appium:pixelRatio: 2.625, appium:platformVersion: 13, appium:statBarHeight: 92, appium:takesScreenshot: true, appium:uiautomator2ServerInstallTimeout: 90000, appium:uuid: RF8R3105FNJ, appium:viewportRect: {height: 2216, left: 0, top: 92, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 1528b016-1752-4d1f-bba5-0cdc1f0f06dc
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.16.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at app//io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:262)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at app//io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:136)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$0(AppiumElementLocator.java:119)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:171)
+	at app//io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:164)
+	at app//org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	... 53 more
+</failure>
+  </testcase>
+  <testcase name="tagadaPathaiBatil" classname="testRunners.TallyTestRunner" time="1.255"/>
+  <testcase name="tagadaPathaiConfirm" classname="testRunners.TallyTestRunner" time="8.882"/>
+  <testcase name="tagadaPathaiDisabledInCustomerReport" classname="testRunners.TallyTestRunner" time="10.88"/>
+  <testcase name="tagadaPathaiExistInKebabMenu" classname="testRunners.TallyTestRunner" time="6.881"/>
+  <testcase name="tagadaPathaiEnabledInCustomerReport" classname="testRunners.TallyTestRunner" time="4.519"/>
+  <testcase name="cancelInfoInCustomerReport" classname="testRunners.TallyTestRunner" time="17.372"/>
+  <testcase name="reportShareInCustomerReport" classname="testRunners.TallyTestRunner" time="2.014"/>
+  <testcase name="isLendenClickableInCustomerReport" classname="testRunners.TallyTestRunner" time="0.153"/>
+  <testcase name="reportDownloadInCustomerReport" classname="testRunners.TallyTestRunner" time="4.598"/>
+  <testcase name="reportDownloadWithDateInCustomerReport" classname="testRunners.TallyTestRunner" time="9.294"/>
+  <testcase name="editLendenInCustomerReport" classname="testRunners.TallyTestRunner" time="12.973"/>
+  <testcase name="deleteLendenInCustomerReport" classname="testRunners.TallyTestRunner" time="9.771"/>
+  <testcase name="isTagadaPathaiAvailableInCustomerReportKebabMenu" classname="testRunners.TallyTestRunner" time="6.983"/>
+  <testcase name="buttonInactiveOnInvalidName" classname="testRunners.TallyTestRunner" time="4.262"/>
+  <testcase name="buttonInactiveOnInvalidPhone" classname="testRunners.TallyTestRunner" time="6.356"/>
+  <testcase name="buttonActiveOnValidNamePhone" classname="testRunners.TallyTestRunner" time="11.746"/>
+  <testcase name="cancelDelete" classname="testRunners.TallyTestRunner" time="6.998"/>
+  <testcase name="confirmDelete" classname="testRunners.TallyTestRunner" time="6.581"/>
+  <testcase name="isTagadaPathaiAvailableInSupplierReportKebabMenu" classname="testRunners.TallyTestRunner" time="8.812"/>
+  <testcase name="isTagadaPathaiAvailableInSupplierReport" classname="testRunners.TallyTestRunner" time="22.963"/>
+  <testcase name="shareRecordInImo" classname="testRunners.TallyTestRunner" time="7.591"/>
+  <testcase name="shareRecordInMessenger" classname="testRunners.TallyTestRunner" time="10.647"/>
+  <system-out><![CDATA[addCustomerWithNameWithoutNumber "Customer With Name Only"- ?? ?????? ??? ??? ??????
+addCustomerWithNameWithoutNumber "Kyle Simp"- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBook "Ottilie Margot"- ?? ?????? ??? ??? ??????
+addCustomerWithJer "Ross Tylar"- ?? ?????? ??? ??? ??????
+addCustomerWithJerZero "Jer Zero"- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBookWithJer "Adeline Remy"- ?? ?????? ??? ??? ??????
+addCustomerWithJerPhotoDate "Hamim"- ?? ?????? ??? ??? ??????
+addCustomerFromPhoneBookWithJerPhotoDate "Sophie Luka"- ?? ?????? ??? ??? ??????
+addCustomerWithInvalidNameValidPhone false
+addCustomerWithValidNameInvalidPhone    ?????? ????? ???? ???
+addCustomerWithExistingPhone    ?? ?????? ??????? ???????? ??? ????? ???
+addCustomerFromPhoneBookWithInvalidName    ??? ? ???? ?? ??????? ????? ??? ????
+addCustomerFromPhoneBookWithInvalidNumber    ?????? ????? ???? ???
+addSupplierWithNameWithoutNumber "Supplier With Name Only"- ?? ?????? ??? ??? ??????
+addSupplierWithNameNumber "Rizwan"- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBook "Emma John"- ?? ?????? ??? ??? ??????
+addSupplierWithJer "Hussain"- ?? ?????? ??? ??? ??????
+addSupplierWithJerZero "Jer Zero"- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBookWithJer "Lena Emilia"- ?? ?????? ??? ??? ??????
+addSupplierWithJerPhotoAndDate "Aila Mix"- ?? ?????? ??? ??? ??????
+addSupplierFromPhoneBookWithJerPhotoAndDate "Monika Christin"- ?? ?????? ??? ??? ??????
+addSupplierWithInvalidNameValidPhone false
+addSupplierWithValidNameInvalidPhone    ?????? ????? ???? ???
+addSupplierWithExistingPhone    ?? ?????? ??????? ???????? ??? ????? ???
+addSupplierFromPhoneBookWithInvalidName    ??? ? ???? ?? ??????? ????? ??? ????
+addSupplierFromPhoneBookWithInvalidNumber    ?????? ????? ???? ???
+customerDilamBeshiPelamKom ??
+customerDilamKomPelamBeshi ??
+customerDilamPelamSoman ??
+supplierDilamBeshiPelamKom ??
+supplierDilamKomPelamBeshi ??
+supplierDilamPelamSoman ??
+clickEyeButton - - -
+searchWithNameThatExist 1
+searchWithNameThatDontExist true
+jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj true
+clickDownloadButton true
+clickAjkerBecha ????? ?????
+customerKomPuraton Customer With Name Only
+customerKomNotun Jer Zero
+customerBeshiNotun Ross Tylar
+customerBeshipuraton Ross Tylar
+supplierKomPuraton Supplier With Name Only
+supplierKomNotun Jer Zero
+supplierBeshiNotun Aila Mix
+supplierBeshipuraton Aila Mix
+share kori in tagada pathai true
+shareKoriInTagadaPathai true
+tallyMessageKiniInTagadaPathai ???? ????? ????
+tagadaPathaiBatil 
+tagadaPathaiConfirm ???????: ?
+tagadaPathaiDisabledInCustomerReport false
+tagadaPathaiExistInKebabMenu ?????? ?????? ????? ?????
+tagadaPathaiEnabledInCustomerReport true
+cancelInfoInCustomerReport false
+reportShareInCustomerReport false
+isLendenClickableInCustomerReport true
+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr true
+reportDownloadInCustomerReport true
+mmmmmmmmmmmmmmmmmmmmmmmmmmmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr true
+reportDownloadWithDateInCustomerReport true
+editLendenInCustomerReport ??
+deleteLendenInCustomerReport ???????? ????? ??? ??????
+isTagadaPathaiAvailableInCustomerReportKebabMenu false
+buttonInactiveOnInvalidName false
+buttonInactiveOnInvalidPhone false
+buttonActiveOnValidNamePhone ????????/??????????? ???? ????? ??? ??????
+cancelDelete 
+confirmDelete name Edited ?? ???? ???? ????? ??? ??????
+isTagadaPathaiAvailableInSupplierReportKebabMenu false
+isTagadaPathaiAvailableInSupplierReport false
+shareRecordInImo ????? ??????? ??? ????
+???? ??????? ????? ???? ?
+shareRecordInMessenger ?????????
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
