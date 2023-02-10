@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Unverified registration Automation Suite">
+    <test name="Users can register without mobile verification">
+        <classes>
+            <class name="testRunners.UnverifiedRegistrationTestRunner"/>
+        </classes>
+    </test>
+</suite>

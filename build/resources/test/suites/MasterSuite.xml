@@ -3,7 +3,8 @@
 <suite name="Master Suite">
     <suite-files>
         <!--        <suite-file path="RegistrationSuite.xml"></suite-file>-->
-        <suite-file path="TallySuite.xml"></suite-file>
+        <!--        <suite-file path="TallySuite.xml"></suite-file>-->
         <!--        <suite-file path="CashboxSuite.xml"></suite-file>-->
+        <suite-file path="UnverifiedRegistrationtSuite.xml"></suite-file>
     </suite-files>
 </suite>
