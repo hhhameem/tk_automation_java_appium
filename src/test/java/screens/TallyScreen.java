@@ -1211,7 +1211,7 @@ public class TallyScreen {
      *  Record share Medium Customer/Supplier
      * -------------------------------------
      */
-    @Step("Search with a existing customer name {0} and update dilam {1} to share in messenger")
+    @Step("Search with a existing customer name {0} and update dilam {1} to share in IMO but imo is not available")
     public String shareRecordInImo(String existingCustomerName, String dilam) {
         inputSearchBox.sendKeys(existingCustomerName);
         objectCustomerOrSupplierDetailsContainer.get(0).click();
