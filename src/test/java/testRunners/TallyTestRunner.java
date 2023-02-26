@@ -388,75 +388,75 @@ public class TallyTestRunner extends Setup {
      * -------------------------------------------------
      */
     @Test(priority = 38)
-    @Description("Add filter: Customer, kom -> beshi, puraton -> notun")
-    public void customerKomPuraton() throws InterruptedException {
+    @Description("Add filter: Customer, kom -> beshi")
+    public void customerKomToBeshi() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualCustomerName = tScreen.customerKomPuraton();
-        System.out.println("customerKomPuraton " + actualCustomerName);
-        Assert.assertEquals(actualCustomerName, "Customer With Name Only");
-    }
-
-    @Test(priority = 39)
-    @Description("Add filter: Customer, kom -> beshi, notun -> puraton ")
-    public void customerKomNotun() throws InterruptedException {
-        tScreen = new TallyScreen(driver);
-        String actualCustomerName = tScreen.customerKomNotun();
-        System.out.println("customerKomNotun " + actualCustomerName);
+        String actualCustomerName = tScreen.customerKomToBeshi();
+        System.out.println("customerKomToBeshi " + actualCustomerName);
         Assert.assertEquals(actualCustomerName, "Jer Zero");
     }
 
-    @Test(priority = 40)
-    @Description("Add filter: Customer, beshi -> kom, notun -> puraton ")
-    public void customerBeshiNotun() throws InterruptedException {
+    @Test(priority = 39)
+    @Description("Add filter: Customer, beshi -> kom ")
+    public void customerBeshiToKom() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualCustomerName = tScreen.customerBeshiNotun();
-        System.out.println("customerBeshiNotun " + actualCustomerName);
+        String actualCustomerName = tScreen.customerBeshiToKom();
+        System.out.println("customerBeshiToKom " + actualCustomerName);
         Assert.assertEquals(actualCustomerName, "Ross Tylar");
+    }
+
+    @Test(priority = 40)
+    @Description("Add filter: Customer, notun -> puraton ")
+    public void customerNotunToPuraton() throws InterruptedException {
+        tScreen = new TallyScreen(driver);
+        String actualCustomerName = tScreen.customerNotunToPuraton();
+        System.out.println("customerNotunToPuraton " + actualCustomerName);
+        Assert.assertEquals(actualCustomerName, "Sophie Luka");
     }
 
     @Test(priority = 41)
-    @Description("Add filter: Customer, beshi -> kom, puraton -> notun")
-    public void customerBeshipuraton() throws InterruptedException {
+    @Description("Add filter: Customer, puraton -> notun")
+    public void customerPuratonToNotun() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualCustomerName = tScreen.customerBeshipuraton();
-        System.out.println("customerBeshipuraton " + actualCustomerName);
-        Assert.assertEquals(actualCustomerName, "Ross Tylar");
+        String actualCustomerName = tScreen.customerPuratonToNotun();
+        System.out.println("customerPuratonToNotun " + actualCustomerName);
+        Assert.assertEquals(actualCustomerName, "Customer With Name Only");
     }
 
     @Test(priority = 42)
-    @Description("Add filter: Supplier, kom -> beshi, puraton -> notun")
-    public void supplierKomPuraton() throws InterruptedException {
+    @Description("Add filter: Supplier, kom -> beshi")
+    public void supplierKomToBeshi() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualSupplierName = tScreen.supplierKomPuraton();
-        System.out.println("supplierKomPuraton " + actualSupplierName);
-        Assert.assertEquals(actualSupplierName, "Supplier With Name Only");
-    }
-
-    @Test(priority = 43)
-    @Description("Add filter: Supplier, kom -> beshi, notun -> puraton")
-    public void supplierKomNotun() throws InterruptedException {
-        tScreen = new TallyScreen(driver);
-        String actualSupplierName = tScreen.supplierKomNotun();
-        System.out.println("supplierKomNotun " + actualSupplierName);
+        String actualSupplierName = tScreen.supplierKomToBeshi();
+        System.out.println("supplierKomToBeshi " + actualSupplierName);
         Assert.assertEquals(actualSupplierName, "Jer Zero");
     }
 
-    @Test(priority = 44)
-    @Description("Add filter: Supplier, beshi -> Kom, notun -> puraton")
-    public void supplierBeshiNotun() throws InterruptedException {
+    @Test(priority = 43)
+    @Description("Add filter: Supplier, beshi -> kom")
+    public void supplierBeshiToKom() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualSupplierName = tScreen.supplierBeshiNotun();
-        System.out.println("supplierBeshiNotun " + actualSupplierName);
+        String actualSupplierName = tScreen.supplierBeshiToKom();
+        System.out.println("supplierBeshiToKom " + actualSupplierName);
         Assert.assertEquals(actualSupplierName, "Aila Mix");
     }
 
-    @Test(priority = 45)
-    @Description("Add filter: Supplier, beshi -> kom, puraton -> notun")
-    public void supplierBeshipuraton() throws InterruptedException {
+    @Test(priority = 44)
+    @Description("Add filter: Supplier, notun -> puraton")
+    public void supplierNotunToPuraton() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String actualSupplierName = tScreen.supplierBeshipuraton();
-        System.out.println("supplierBeshipuraton " + actualSupplierName);
-        Assert.assertEquals(actualSupplierName, "Aila Mix");
+        String actualSupplierName = tScreen.supplierNotunToPuraton();
+        System.out.println("supplierNotunToPuraton " + actualSupplierName);
+        Assert.assertEquals(actualSupplierName, "Monika Christin");
+    }
+
+    @Test(priority = 45)
+    @Description("Add filter: Supplier, puraton -> notun")
+    public void supplierPuratonToNotun() throws InterruptedException {
+        tScreen = new TallyScreen(driver);
+        String actualSupplierName = tScreen.supplierPuratonToNotun();
+        System.out.println("supplierPuratonToNotun " + actualSupplierName);
+        Assert.assertEquals(actualSupplierName, "Supplier With Name Only");
     }
 
 
@@ -696,7 +696,7 @@ public class TallyTestRunner extends Setup {
      * ---------------------------------------------------
      */
     @Test(priority = 69)
-    @Description("Confirm that when lenden record shared in imo and imo is not installed in phone an error pops up")
+    @Description("Confirm that when lenden record shared in whatsapp and whatsapp is not installed in phone an error pops  up")
     public void shareRecordInImo() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textAlertUnavailableApp = tScreen.shareRecordInImo("Hamim", "12");

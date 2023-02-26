@@ -840,13 +840,12 @@ public class TallyScreen {
      *  Filter
      * -------------------------------------
      */
-    public String customerKomPuraton() throws InterruptedException {
+    public String customerKomToBeshi() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxCustomer.click();
-        inputCheckBoxKomToBeshi.click();
         Thread.sleep(1000);
-        inputCheckBoxPuratonToNotun.click();
+        inputCheckBoxKomToBeshi.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         Thread.sleep(2000);
@@ -854,18 +853,7 @@ public class TallyScreen {
         return textCustomerName.getText();
     }
 
-    public String customerKomNotun() throws InterruptedException {
-        tabTally.click();
-        btnFilter.click();
-        inputCheckBoxNotunToPuraton.click();
-        Utils.saveScreenshot("Before clicking confirm button", driver);
-        btnNischit.click();
-        Thread.sleep(2000);
-        Utils.saveScreenshot("After clicking confirm button", driver);
-        return textCustomerName.getText();
-    }
-
-    public String customerBeshiNotun() throws InterruptedException {
+    public String customerBeshiToKom() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxBeshiToKom.click();
@@ -876,7 +864,18 @@ public class TallyScreen {
         return textCustomerName.getText();
     }
 
-    public String customerBeshipuraton() throws InterruptedException {
+    public String customerNotunToPuraton() throws InterruptedException {
+        tabTally.click();
+        btnFilter.click();
+        inputCheckBoxNotunToPuraton.click();
+        Utils.saveScreenshot("Before clicking confirm button", driver);
+        btnNischit.click();
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textCustomerName.getText();
+    }
+
+    public String customerPuratonToNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxPuratonToNotun.click();
@@ -887,14 +886,14 @@ public class TallyScreen {
         return textCustomerName.getText();
     }
 
-    public String supplierKomPuraton() throws InterruptedException {
+    public String supplierKomToBeshi() throws InterruptedException {
         tabTally.click();
         btnClearFilter.click();
         Thread.sleep(1000);
         btnFilter.click();
         inputCheckBoxSupplier.click();
+        Thread.sleep(1000);
         inputCheckBoxKomToBeshi.click();
-        inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         Thread.sleep(2000);
@@ -902,18 +901,7 @@ public class TallyScreen {
         return textSupplierName.getText();
     }
 
-    public String supplierKomNotun() throws InterruptedException {
-        tabTally.click();
-        btnFilter.click();
-        inputCheckBoxNotunToPuraton.click();
-        Utils.saveScreenshot("Before clicking confirm button", driver);
-        btnNischit.click();
-        Thread.sleep(2000);
-        Utils.saveScreenshot("After clicking confirm button", driver);
-        return textSupplierName.getText();
-    }
-
-    public String supplierBeshiNotun() throws InterruptedException {
+    public String supplierBeshiToKom() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxBeshiToKom.click();
@@ -924,13 +912,23 @@ public class TallyScreen {
         return textSupplierName.getText();
     }
 
-    public String supplierBeshipuraton() throws InterruptedException {
+    public String supplierNotunToPuraton() throws InterruptedException {
+        tabTally.click();
+        btnFilter.click();
+        inputCheckBoxNotunToPuraton.click();
+        Utils.saveScreenshot("Before clicking confirm button", driver);
+        btnNischit.click();
+        Thread.sleep(2000);
+        Utils.saveScreenshot("After clicking confirm button", driver);
+        return textSupplierName.getText();
+    }
+
+    public String supplierPuratonToNotun() throws InterruptedException {
         tabTally.click();
         btnFilter.click();
         inputCheckBoxPuratonToNotun.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        Thread.sleep(3000);
         Thread.sleep(2000);
         Utils.saveScreenshot("After clicking confirm button", driver);
         return textSupplierName.getText();
@@ -1211,21 +1209,21 @@ public class TallyScreen {
      *  Record share Medium Customer/Supplier
      * -------------------------------------
      */
-    @Step("Search with a existing customer name {0} and update dilam {1} to share in IMO but imo is not available")
+    @Step("Search with a existing customer name {0} and update dilam {1} to share in Whatsapp but not available")
     public String shareRecordInImo(String existingCustomerName, String dilam) {
         inputSearchBox.sendKeys(existingCustomerName);
         objectCustomerOrSupplierDetailsContainer.get(0).click();
         inputDilam.sendKeys(dilam);
         btnRadioSendSMSDilamPelam.click();
         btnConfirmInDilamPelamAndLendenEdit.click();
-        btnShareOptions.get(0).click();
+        btnShareOptions.get(2).click();
         String textAlertUnavailableApp = textAlertNoAppToShareRecord.getText();
         Utils.saveScreenshot("Unavailable app alert", driver);
         return textAlertUnavailableApp;
     }
 
     public String shareRecordInMessenger() throws InterruptedException {
-        btnShareOptions.get(1).click();
+        btnShareOptions.get(3).click();
         btnSendRecordInMessenger.click();
         Utils.saveScreenshot("After sending message in messenger", driver);
         Thread.sleep(2000);
