@@ -29,6 +29,8 @@ public class RegistrationScreen {
     WebElement inputOtpCode1;
     @FindBy(id = "com.progoti.tallykhata:id/btnNext")
     WebElement btnNext;
+    @FindBy(id = "com.progoti.tallykhata:id/tvResendOtp")
+    WebElement btnResentOtp;
     @FindBy(id = "com.progoti.tallykhata:id/et_shop_name")
     WebElement inputShopName;
     @FindBy(id = "com.progoti.tallykhata:id/toolbar_title")
@@ -49,19 +51,21 @@ public class RegistrationScreen {
     WebElement textDataBackupMessage;
 
 
-    public boolean insertPhoneAndClickButton(String mobileNumberToInsert) {
+    public boolean insertPhoneAndClickButton(String mobileNumberToInsert) throws InterruptedException {
         inputMobileNumber.sendKeys(mobileNumberToInsert);
         boolean isButtonEnabled = btnPoroborti.isEnabled();
+        Thread.sleep(1000);
         if (isButtonEnabled) {
             btnPoroborti.click();
         }
         return isButtonEnabled;
     }
 
-    public boolean insertOtpAndClickButton(AndroidDriver driver) {
+    public boolean insertOtpAndClickButton(AndroidDriver driver) throws InterruptedException {
         inputOtpCode1.click();
         Actions action = new Actions(driver);
         action.sendKeys(dotenv.get("OTP")).perform();
+        Thread.sleep(1000);
         boolean isButtonEnabled = btnNext.isEnabled();
         if (isButtonEnabled) {
             btnNext.click();
@@ -69,16 +73,17 @@ public class RegistrationScreen {
         return isButtonEnabled;
     }
 
-    public boolean insertShopNameAndClickButton(String shop_name) {
+    public boolean insertShopNameAndClickButton(String shop_name) throws InterruptedException {
         inputShopName.sendKeys(shop_name);
         boolean isButtonEnabled = btnNext.isEnabled();
+        Thread.sleep(1000);
         if (isButtonEnabled) {
             btnNext.click();
         }
         return isButtonEnabled;
     }
 
-    public String createUnverifiedAccount(String phone, String name, AndroidDriver driver) {
+    public String createUnverifiedAccount(String phone, String name, AndroidDriver driver) throws InterruptedException {
         insertPhoneAndClickButton(phone);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.progoti.tallykhata:id/et_shop_name")));
@@ -86,11 +91,19 @@ public class RegistrationScreen {
         return textShopTitle.getText();
     }
 
-    public boolean verifyMobile(AndroidDriver driver) {
+    public boolean verifyMobile(AndroidDriver driver) throws InterruptedException {
         iconAlert.click();
         btnVerifyKori.click();
         btnNext.click();
-        insertOtpAndClickButton(driver);
+        if (driver.findElements(By.id("com.progoti.tallykhata:id/tvResendOtp")).isEmpty()) {
+            System.out.println("Inside if");
+            insertOtpAndClickButton(driver);
+        } else {
+            btnResentOtp.click();
+            Thread.sleep(2000);
+            btnResentOtp.click();
+            insertOtpAndClickButton(driver);
+        }
         return driver.findElements(By.id("com.progoti.tallykhata:id/iv_alert")).isEmpty();
     }
 

@@ -16,7 +16,7 @@ public class TallyTestRunner extends Setup {
     TallyScreen tScreen;
 
     @BeforeTest
-    public void register() {
+    public void register() throws InterruptedException {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
         rScreen.insertPhoneAndClickButton(Utils.randomPhoneNumber());
         rScreen.insertOtpAndClickButton(driver);

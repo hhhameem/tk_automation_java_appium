@@ -14,7 +14,7 @@ public class RegistrationTestRunner extends Setup {
     private final String shopName = Utils.randomShopName();
 
     @Test(priority = 1, description = "Enter phone number")
-    public void enterPhoneNumberAndClickButton() {
+    public void enterPhoneNumberAndClickButton() throws InterruptedException {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
         boolean isButtonEnabled = rScreen.insertPhoneAndClickButton(phoneNumber);
         Utils.saveScreenshot("Screenshot", driver);
@@ -22,7 +22,7 @@ public class RegistrationTestRunner extends Setup {
     }
 
     @Test(priority = 2, description = "Enter OTP")
-    public void enterOtpAndClickButton() {
+    public void enterOtpAndClickButton() throws InterruptedException {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
         boolean isButtonEnabled = rScreen.insertOtpAndClickButton(driver);
         Utils.saveScreenshot("Screenshot", driver);

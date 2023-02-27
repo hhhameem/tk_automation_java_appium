@@ -19,7 +19,7 @@ public class UnverifiedRegistrationTestRunner extends Setup {
     }
 
     @Test(priority = 2)
-    public void verifyMobile() {
+    public void verifyMobile() throws InterruptedException {
         RegistrationScreen rScreen = new RegistrationScreen(driver);
         boolean isUnavailable = rScreen.verifyMobile(driver);
         System.out.println("verifyMobile " + isUnavailable);
