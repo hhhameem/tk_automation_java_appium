@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Tallykhata Customer Registration Automation Suite">
-    <test name="Customers can Register successfully">
-        <classes>
-            <class name="testRunners.RegistrationTestRunner"/>
-        </classes>
-    </test>
-</suite>

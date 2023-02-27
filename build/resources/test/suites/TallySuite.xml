@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Tally tab Automation Suite">
-    <test name="Registered customers can perform all actions on tally tab successfully">
-        <classes>
-            <class name="testRunners.TallyTestRunner"/>
-        </classes>
-    </test>
-</suite>
