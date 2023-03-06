@@ -487,9 +487,9 @@ public class TallyTestRunner extends Setup {
     @Description("Confirm that Copy Link button works in tagda pathai page")
     public void copyLinkInTagadaPathai() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String confirmAlert = tScreen.copyLinkInTagadaPathai();
-        System.out.println("copyLinkInTagadaPathai " + confirmAlert);
-        Assert.assertTrue(confirmAlert.contains(dotenv.get("TEXT_AFTER_COPYING_PAYMENT_LINK")));
+        boolean isUnavailable = tScreen.unavailableLinkInTagadaPathai();
+        System.out.println("copyLinkInTagadaPathai " + isUnavailable);
+        Assert.assertTrue(isUnavailable);
     }
 
     @Test(priority = 49)
@@ -712,5 +712,26 @@ public class TallyTestRunner extends Setup {
         System.out.println("shareRecordInMessenger " + textrecordSharedMedium);
         Assert.assertTrue(textrecordSharedMedium.contains(dotenv.get("PARTIAL_TEXT_RECORD_SHARE_APP_MESSENGER")));
     }
+    /*
+     *--------------------------------------
+     *  Copy Tagada Message Link After D2S
+     * -------------------------------------
+     */
+    @Test(priority = 71)
+    @Description("D2S")
+    public void D2S() throws InterruptedException {
+        tScreen = new TallyScreen(driver);
+        String D2SString = tScreen.D2S();
+        System.out.println("D2S " + D2SString);
+    }
+    @Test(priority = 72)
+    @Description("Copy Tagada Message pathai link after doing a d2s")
+    public void CopyLink() throws InterruptedException {
+        tScreen = new TallyScreen(driver);
+        String confirmAlert = tScreen.CopyLink();
+        System.out.println("CopyLink " + confirmAlert);
+        Assert.assertTrue(confirmAlert.contains(dotenv.get("TEXT_AFTER_COPYING_PAYMENT_LINK")));
+    }
+
 
 }

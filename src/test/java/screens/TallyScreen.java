@@ -24,6 +24,14 @@ public class TallyScreen {
     //    Main Menus(Tabs)
     @FindBy(id = "com.progoti.tallykhata:id/item_tally")
     WebElement tabTally;
+    @FindBy(id = "com.progoti.tallykhata:id/item_menu")
+    WebElement tabMenu;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_title")
+    List<WebElement> tabMenuOptions;
+    @FindBy(id = "com.progoti.tallykhata:id/ivDataBackup")
+    WebElement btnDataBackup;
+    @FindBy(id = "com.progoti.tallykhata:id/tvDataBackupMessage")
+    WebElement textDataBackupMessage;
 
     // Common elements throughout the tally tab
     @FindBy(id = "com.progoti.tallykhata:id/btnConfirm")
@@ -959,11 +967,16 @@ public class TallyScreen {
         return tallyMessageKiniText;
     }
 
-    public String copyLinkInTagadaPathai() throws InterruptedException {
-        btnCopyLink.click();
-        String confirmAlert = alertSnackbarText.getText();     // should return পেমেন্ট লিংক কপি করা হয়েছে।
-        Utils.saveScreenshot("After clicking copy link button", driver);
-        return confirmAlert;
+    public boolean unavailableLinkInTagadaPathai() throws InterruptedException {
+        boolean isUnavailable = driver.findElements(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget" +
+                ".LinearLayout/android" +
+                ".widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android" +
+                ".widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget" +
+                ".LinearLayout/android.widget.ImageView")).isEmpty();
+//        btnCopyLink.click();
+//        String confirmAlert = alertSnackbarText.getText();     // should return পেমেন্ট লিংক কপি করা হয়েছে।
+        Utils.saveScreenshot("Tagada pathai link unavailable", driver);
+        return isUnavailable;
     }
 
     public void tagadaPathaiBatil() throws InterruptedException {
@@ -1206,7 +1219,7 @@ public class TallyScreen {
 
     /*
      *--------------------------------------
-     *  Record share Medium Customer/Supplier
+     *  Record share Medium Customer
      * -------------------------------------
      */
     @Step("Search with a existing customer name {0} and update dilam {1} to share in Whatsapp but not available")
@@ -1230,9 +1243,33 @@ public class TallyScreen {
         btnBackFromMessenger.click();
         btnConfirmWindowClose.click();
         objectCustomerOrSupplierDetailsContainer.get(0).click();
-        String textrecordSharedMedium = textrecordShareMedium.getText();
+        String textRecordSharedMedium = textrecordShareMedium.getText();
         Utils.saveScreenshot("Record Shared Medium in dilam/pelam page", driver);
         btnBack.click();
-        return textrecordSharedMedium;
+        return textRecordSharedMedium;
+    }
+
+    /*
+     *--------------------------------------
+     *  Copy Tagada Message Link After D2S
+     * -------------------------------------
+     */
+    public String D2S() throws InterruptedException {
+        tabMenu.click();
+        Thread.sleep(2000);
+        tabMenuOptions.get(7).click();
+        btnDataBackup.click();
+        Thread.sleep(5000);
+        String dataBackupMessage = textDataBackupMessage.getText();
+        btnBack.click();
+        return dataBackupMessage;
+    }
+    public String CopyLink() throws InterruptedException {
+        btnTagadaPathai.click();
+        objectTagadaPathaiLendenDetailsContainer.get(0).click();
+        btnCopyLink.click();
+        String confirmAlert = alertSnackbarText.getText();     // should return পেমেন্ট লিংক কপি করা হয়েছে।
+        Utils.saveScreenshot("After clicking copy tagada pathai link", driver);
+        return confirmAlert;
     }
 }
