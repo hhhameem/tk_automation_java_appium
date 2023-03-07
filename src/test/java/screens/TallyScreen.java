@@ -363,7 +363,7 @@ public class TallyScreen {
     }
 
     @Step("Create customer with name {0}, number {1} and jer {2} along with photo and date")
-    public String addCustomerWithJerPhotoDate(String name, String number, String jer) throws InterruptedException {
+    public String addCustomerWithJerPhotoDate(AndroidDriver driver, String name, String number, String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
         inputCustomerOrSupplierName.sendKeys(name);
@@ -557,7 +557,7 @@ public class TallyScreen {
     }
 
     @Step("Create supplier with name {0}, number {1} and jer {2} along with photo and date")
-    public String addSupplierWithJerPhotoAndDate(String name, String number, String jer) throws InterruptedException {
+    public String addSupplierWithJerPhotoAndDate(AndroidDriver driver, String name, String number, String jer) throws InterruptedException {
         tabTally.click();
         btnCustomerJogKori.click();
         tabSupplier.click();
@@ -973,8 +973,6 @@ public class TallyScreen {
                 ".widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android" +
                 ".widget.LinearLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget" +
                 ".LinearLayout/android.widget.ImageView")).isEmpty();
-//        btnCopyLink.click();
-//        String confirmAlert = alertSnackbarText.getText();     // should return পেমেন্ট লিংক কপি করা হয়েছে।
         Utils.saveScreenshot("Tagada pathai link unavailable", driver);
         return isUnavailable;
     }
@@ -1254,7 +1252,7 @@ public class TallyScreen {
      *  Copy Tagada Message Link After D2S
      * -------------------------------------
      */
-    public String D2S() throws InterruptedException {
+    public String D2S(AndroidDriver driver) throws InterruptedException {
         tabMenu.click();
         Thread.sleep(2000);
         tabMenuOptions.get(7).click();
@@ -1262,6 +1260,7 @@ public class TallyScreen {
         Thread.sleep(5000);
         String dataBackupMessage = textDataBackupMessage.getText();
         btnBack.click();
+        Utils.tapByCoordinate(driver, 100, 500);
         return dataBackupMessage;
     }
     public String CopyLink() throws InterruptedException {

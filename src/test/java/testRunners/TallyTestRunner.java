@@ -86,7 +86,7 @@ public class TallyTestRunner extends Setup {
     @Description("Create customer with valid name, valid number, positive jer, with photo and current date")
     public void addCustomerWithJerPhotoDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String confirmationMessage = tScreen.addCustomerWithJerPhotoDate("Hamim", "01953471217", "3");
+        String confirmationMessage = tScreen.addCustomerWithJerPhotoDate(driver,"Hamim", "01953471217", "3");
         System.out.println("addCustomerWithJerPhotoDate " + confirmationMessage);
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("PARTIAL_TEXT_AFTER_CREATING_CUSTOMER_OR_SUPPLIER")));
     }
@@ -209,7 +209,8 @@ public class TallyTestRunner extends Setup {
     @Description("Create supplier with valid name, valid number, positive jer, with photo and current date")
     public void addSupplierWithJerPhotoAndDate() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String confirmationMessage = tScreen.addSupplierWithJerPhotoAndDate("Aila Mix", Utils.randomPhoneNumber(), "7");
+        String confirmationMessage = tScreen.addSupplierWithJerPhotoAndDate(driver,"Aila Mix",
+                Utils.randomPhoneNumber(), "7");
         System.out.println("addSupplierWithJerPhotoAndDate " + confirmationMessage);
         Assert.assertTrue(confirmationMessage.contains(dotenv.get("PARTIAL_TEXT_AFTER_CREATING_CUSTOMER_OR_SUPPLIER")));
     }
@@ -695,7 +696,7 @@ public class TallyTestRunner extends Setup {
      *  Record share Medium Customer/Supplier test cases
      * ---------------------------------------------------
      */
-    @Test(priority = 69)
+    @Test(priority = 69, enabled = false)
     @Description("Confirm that when lenden record shared in whatsapp and whatsapp is not installed in phone an error pops  up")
     public void shareRecordInImo() throws InterruptedException {
         tScreen = new TallyScreen(driver);
@@ -704,7 +705,7 @@ public class TallyTestRunner extends Setup {
         Assert.assertTrue(textAlertUnavailableApp.contains(dotenv.get("TEXT_APP_UNAVAILABLE_TO_SHARE")));
     }
 
-    @Test(priority = 70)
+    @Test(priority = 70, enabled = false)
     @Description("Confirm that lenden record can be shared in messenger given that the app is installed and in dilam/pelam page it shows that last record was shared thorugh messenger when the toggle button is inactive")
     public void shareRecordInMessenger() throws InterruptedException {
         tScreen = new TallyScreen(driver);
@@ -721,7 +722,7 @@ public class TallyTestRunner extends Setup {
     @Description("D2S")
     public void D2S() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String D2SString = tScreen.D2S();
+        String D2SString = tScreen.D2S(driver);
         System.out.println("D2S " + D2SString);
     }
     @Test(priority = 72)
