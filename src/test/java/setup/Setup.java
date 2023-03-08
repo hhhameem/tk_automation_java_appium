@@ -21,12 +21,12 @@ public class Setup {
     @BeforeTest
     public AndroidDriver setup() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("deviceName", "Samsung Galaxy M62");
+        desiredCapabilities.setCapability("deviceName", "Symphony Z30 pro");
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("os", 11);
+        desiredCapabilities.setCapability("os", 10);
 //        desiredCapabilities.setCapability("os", 13);
-        desiredCapabilities.setCapability("uuid", dotenv.get("UUID_EMULATOR"));
-//        desiredCapabilities.setCapability("uuid", dotenv.get("UUID_REAL_DEVICE"));
+//        desiredCapabilities.setCapability("uuid", dotenv.get("UUID_EMULATOR"));
+        desiredCapabilities.setCapability("uuid", dotenv.get("UUID_REAL_DEVICE"));
         desiredCapabilities.setCapability("uiautomator2ServerInstallTimeout", 90000);
         desiredCapabilities.setCapability("autoGrantPermissions", true);
         desiredCapabilities.setCapability("fullReset", true);
