@@ -696,22 +696,22 @@ public class TallyTestRunner extends Setup {
      *  Record share Medium Customer/Supplier test cases
      * ---------------------------------------------------
      */
-    @Test(priority = 69, enabled = false)
-    @Description("Confirm that when lenden record shared in whatsapp and whatsapp is not installed in phone an error pops  up")
-    public void shareRecordInImo() throws InterruptedException {
+    @Test(priority = 69)
+    @Description("Confirm that when lenden record shared in whatsapp and whatsapp is not installed in phone an error pops up")
+    public void shareRecordInMessenger() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String textAlertUnavailableApp = tScreen.shareRecordInImo("Hamim", "12");
+        String textAlertUnavailableApp = tScreen.shareRecordInMessenger("Hamim", "12");
         System.out.println("shareRecordInImo " + textAlertUnavailableApp);
         Assert.assertTrue(textAlertUnavailableApp.contains(dotenv.get("TEXT_APP_UNAVAILABLE_TO_SHARE")));
     }
 
-    @Test(priority = 70, enabled = false)
-    @Description("Confirm that lenden record can be shared in messenger given that the app is installed and in dilam/pelam page it shows that last record was shared thorugh messenger when the toggle button is inactive")
-    public void shareRecordInMessenger() throws InterruptedException {
+    @Test(priority = 70)
+    @Description("Confirm that lenden record can be shared in messenger given that the app is installed and in dilam/pelam page it shows that last record was shared through messenger when the toggle button is  inactive")
+    public void shareRecordInWhatsapp() throws InterruptedException {
         tScreen = new TallyScreen(driver);
-        String textrecordSharedMedium = tScreen.shareRecordInMessenger();
-        System.out.println("shareRecordInMessenger " + textrecordSharedMedium);
-        Assert.assertTrue(textrecordSharedMedium.contains(dotenv.get("PARTIAL_TEXT_RECORD_SHARE_APP_MESSENGER")));
+        String textRecordSharedMedium = tScreen.shareRecordInWhatsapp(driver);
+        System.out.println("shareRecordInMessenger " + textRecordSharedMedium);
+        Assert.assertTrue(textRecordSharedMedium.contains(dotenv.get("PARTIAL_TEXT_RECORD_SHARE_APP_MESSENGER")));
     }
     /*
      *--------------------------------------
