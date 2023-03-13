@@ -43,6 +43,10 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "./src/test/resources/suites/MasterSuite.xml"
+        if (project.hasProperty("tally")) {
+            suites "./src/test/resources/suites/TallySuite.xml"
+        } else if(project.hasProperty("wallet")) {
+            suites "./src/test/resources/suites/RegistrationSuite.xml"
+        }
     }
 }
