@@ -6,6 +6,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -166,7 +167,7 @@ public class TallyScreen {
     @FindBy(id = "com.progoti.tallykhata:id/tvCreditAmount")
     WebElement textCreditAmountValue;
     @FindBy(id = "com.progoti.tallykhata:id/tv_last_share_medium_name")
-    WebElement textrecordShareMedium;
+    WebElement textRecordShareMedium;
     @FindBy(id = "com.progoti.tallykhata:id/etSale")
     WebElement inputDilam;
     @FindBy(id = "com.progoti.tallykhata:id/etGot")
@@ -201,10 +202,12 @@ public class TallyScreen {
     WebElement textAlertNoAppToShareRecord;
     @FindBy(id = "com.progoti.tallykhata:id/root")
     List<WebElement> btnShareOptions;
-    @FindBy(xpath = "(//android.view.ViewGroup[@content-desc=\"Send\"])[1]")
-    WebElement btnSendRecordInMessenger;
-    @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Back\"]")
-    WebElement btnBackFromMessenger;
+    @FindBy(id = "com.whatsapp:id/contactpicker_text_container")
+    List<WebElement> btnContactListToSendRecordInWhatsapp;
+    @FindBy(id = "com.whatsapp:id/send")
+    WebElement btnSendRecordInWhatsapp;
+    @FindBy(id = "com.whatsapp:id/whatsapp_toolbar_home")
+    WebElement btnBackFromWhatsapp;
 
     // Tagada Pathai page elements
     @FindBy(id = "com.progoti.tallykhata:id/layout")
@@ -371,14 +374,15 @@ public class TallyScreen {
         inputPurberBaki.click();
         inputPurberBaki.sendKeys(jer);
         btnRadioSendSMSEnabled.click();
+        Thread.sleep(500);
+        btnDatePicker.click();
+        btnOkAfterDatePicking.click();
         Thread.sleep(1000);
         btnOpenCamera.click();
         Thread.sleep(1000);
         btnClickPhoto.click();
         Thread.sleep(1000);
         btnAcceptClickedPhoto.click();
-        btnDatePicker.click();
-        btnOkAfterDatePicking.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
@@ -394,14 +398,15 @@ public class TallyScreen {
         inputCustomerOrSupplierName.sendKeys(nameToChange);
         inputPurberBaki.sendKeys(jer);
         btnRadioSendSMSEnabled.click();
+        Thread.sleep(500);
+        btnDatePicker.click();
+        btnOkAfterDatePicking.click();
         Thread.sleep(1000);
         btnOpenCamera.click();
         Thread.sleep(1000);
         btnClickPhoto.click();
         Thread.sleep(1000);
         btnAcceptClickedPhoto.click();
-        btnDatePicker.click();
-        btnOkAfterDatePicking.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
@@ -565,14 +570,14 @@ public class TallyScreen {
         inputCustomerOrSupplierMobileNumber.sendKeys(number);
         inputPurberBaki.click();
         inputPurberBaki.sendKeys(jer);
+        btnDatePicker.click();
+        btnOkAfterDatePicking.click();
         Thread.sleep(1000);
         btnOpenCamera.click();
         Thread.sleep(1000);
         btnClickPhoto.click();
         Thread.sleep(1000);
         btnAcceptClickedPhoto.click();
-        btnDatePicker.click();
-        btnOkAfterDatePicking.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
@@ -587,15 +592,16 @@ public class TallyScreen {
         objectThirdContact.click();
         inputCustomerOrSupplierName.clear();
         inputCustomerOrSupplierName.sendKeys(nameToChange);
+        inputPurberBaki.click();
         inputPurberBaki.sendKeys(jer);
+        btnDatePicker.click();
+        btnOkAfterDatePicking.click();
         Thread.sleep(1000);
         btnOpenCamera.click();
         Thread.sleep(1000);
         btnClickPhoto.click();
         Thread.sleep(1000);
         btnAcceptClickedPhoto.click();
-        btnDatePicker.click();
-        btnOkAfterDatePicking.click();
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
         return textConfirmMessageAfterSupplierOrCustomerCreation.getText();
@@ -1221,27 +1227,30 @@ public class TallyScreen {
      * -------------------------------------
      */
     @Step("Search with a existing customer name {0} and update dilam {1} to share in Whatsapp but not available")
-    public String shareRecordInImo(String existingCustomerName, String dilam) {
+    public String shareRecordInMessenger(String existingCustomerName, String dilam) {
         inputSearchBox.sendKeys(existingCustomerName);
         objectCustomerOrSupplierDetailsContainer.get(0).click();
         inputDilam.sendKeys(dilam);
         btnRadioSendSMSDilamPelam.click();
         btnConfirmInDilamPelamAndLendenEdit.click();
-        btnShareOptions.get(2).click();
+        btnShareOptions.get(3).click();
         String textAlertUnavailableApp = textAlertNoAppToShareRecord.getText();
         Utils.saveScreenshot("Unavailable app alert", driver);
         return textAlertUnavailableApp;
     }
 
-    public String shareRecordInMessenger() throws InterruptedException {
-        btnShareOptions.get(3).click();
-        btnSendRecordInMessenger.click();
-        Utils.saveScreenshot("After sending message in messenger", driver);
+    public String shareRecordInWhatsapp(AndroidDriver driver) throws InterruptedException {
+        btnShareOptions.get(2).click();
+        btnContactListToSendRecordInWhatsapp.get(1).click();
+        btnSendRecordInWhatsapp.click();
+        Thread.sleep(3000);
+        btnSendRecordInWhatsapp.click();
         Thread.sleep(2000);
-        btnBackFromMessenger.click();
-        btnConfirmWindowClose.click();
+        Utils.saveScreenshot("After sending message in whatsapp", driver);
+        btnBackFromWhatsapp.click();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
         objectCustomerOrSupplierDetailsContainer.get(0).click();
-        String textRecordSharedMedium = textrecordShareMedium.getText();
+        String textRecordSharedMedium = textRecordShareMedium.getText();
         Utils.saveScreenshot("Record Shared Medium in dilam/pelam page", driver);
         btnBack.click();
         return textRecordSharedMedium;
