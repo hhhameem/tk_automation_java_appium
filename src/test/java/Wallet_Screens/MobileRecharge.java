@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Utils;
 
 public class MobileRecharge {
 
@@ -147,7 +148,7 @@ public class MobileRecharge {
 
         pin1.click();
         Actions p1 = new Actions(driver);
-        p1.sendKeys("3");
+        p1.sendKeys("5");
         p1.perform();
 
         pin2.click();
@@ -179,7 +180,8 @@ public class MobileRecharge {
         ok_btn_for_recharge.click();
         input_amount.sendKeys("20.51");
         poroborti_btn_for_recharge.click();
-        input_pin_for_mr.sendKeys("3000");
+        input_pin_for_mr.sendKeys("5000");
+        Utils.saveScreenshot("After providing pin", driver);
         next_btn_after_pin.click();
 
         return_home_after_successful_recharge.click();

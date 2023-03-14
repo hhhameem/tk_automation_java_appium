@@ -14,7 +14,7 @@ public class CreditCollectionPayementlinkTest extends Setup {
 
     }
     @Test(priority = 2)
-    public void checking_credit_collection_share_message(){
+    public void checking_credit_collection_share_message() throws InterruptedException {
         CreditCollectionTagada collection = new CreditCollectionTagada(driver);
         String name2 = collection.share_credit_collection_message(driver);
         System.out.println(name2);

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Utils;
+
 import java.util.List;
 
 public class MoneyOut {
@@ -116,8 +118,8 @@ public class MoneyOut {
     //money out to nagad
     //select nagad
 
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]")
-    WebElement mfs_nagad;
+    @FindBy(id = "com.progoti.tallykhata:id/txt_account_name")
+    List<WebElement> mfs_nagad;
 
 
     @FindBy(id = "com.progoti.tallykhata:id/etNumberInput")
@@ -166,7 +168,7 @@ public class MoneyOut {
 
         pin1.click();
         Actions p1 = new Actions(driver);
-        p1.sendKeys("3");
+        p1.sendKeys("5");
         p1.perform();
 
         pin2.click();
@@ -193,20 +195,14 @@ public class MoneyOut {
         biboron_money_out.sendKeys("Money Out Bank");
 
         confirm_btn_money_out.click();
-        pin_input_money_out.sendKeys("3000");
+        pin_input_money_out.sendKeys("5000");
+        Utils.saveScreenshot("After providing pin", driver);
         pin_nirchit_money_out.click();
-
 
         ok_btn_money_out.click();
         Thread.sleep(2000);
 
         //dismiss_dialog.click();
-
-
-
-        money_out_btn.click();
-
-
 
         return "Money Out Bank";
 
@@ -216,11 +212,13 @@ public class MoneyOut {
 
 
     public String  money_out_to_nagad(AndroidDriver driver) throws InterruptedException {
-
-        Thread.sleep(2000);
-
-        mfs_nagad.click();
-
+//        ---------------Modified by Hebron--------------------
+        money_out_btn.click();
+        Thread.sleep(1000);
+        Utils.swipeUp(driver, 300);
+        Thread.sleep(1000);
+        mfs_nagad.get(1).click();
+        //-------------------------------------------
         input_nagad_account_number.sendKeys("01300001700");
 
         next_btn_after_giving_nagad_number.click();
@@ -234,7 +232,8 @@ public class MoneyOut {
 
 
         confirm_btn_money_out.click();
-        pin_input_money_out.sendKeys("3000");
+        pin_input_money_out.sendKeys("5000");
+        Utils.saveScreenshot("After providing pin", driver);
         pin_nirchit_money_out.click();
 
 

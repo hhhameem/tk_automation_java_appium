@@ -1,11 +1,15 @@
 package Wallet_Screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Utils;
+
 import java.util.List;
 
 public class CreditCollectionTagada {
@@ -98,7 +102,10 @@ public class CreditCollectionTagada {
     @FindBy(id = "com.samsung.android.messaging:id/send_button1")
     WebElement send_message_btn;
 
-
+    @FindBy(id = "android:id/chooser_header")
+    WebElement externalLayout;
+    @FindBy(id = "com.progoti.tallykhata:id/back_button")
+    WebElement backButton;
 
 
 
@@ -136,7 +143,7 @@ public class CreditCollectionTagada {
 
         pin1.click();
         Actions p1 = new Actions(driver);
-        p1.sendKeys("3");
+        p1.sendKeys("5");
         p1.perform();
 
         pin2.click();
@@ -163,6 +170,8 @@ public class CreditCollectionTagada {
         credit_collection_btn.click();
         selected_customer.click();
         send_tallymsg_btn.click();
+        Thread.sleep(1000);
+        Utils.saveScreenshot("Before clicking Thik ache button", driver);
         thik_ace_btn.click();
         Thread.sleep(2000);
 
@@ -173,13 +182,22 @@ public class CreditCollectionTagada {
 
     }
 
-    public String share_credit_collection_message(AndroidDriver driver){
+    public String share_credit_collection_message(AndroidDriver driver) throws InterruptedException {
         credit_collection_btn.click();
         selected_customer.click();
         share_kori_btn.click();
-        message_option.get(0).click();
-        send_message_btn.click();
 
+        //------------------------- Modified by Hebron-----------------------
+//        message_option.get(0).click();
+//        send_message_btn.click();
+        Thread.sleep(1000);
+        Utils.saveScreenshot("After clicking share kori button", driver);
+        externalLayout.isDisplayed();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        backButton.click();
+        Thread.sleep(1000);
+        backButton.click();
+//        ----------------------------------------
         return "credit Collection Tagada Share";
     }
 }

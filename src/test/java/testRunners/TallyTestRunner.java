@@ -706,12 +706,14 @@ public class TallyTestRunner extends Setup {
     }
 
     @Test(priority = 70)
-    @Description("Confirm that lenden record can be shared in messenger given that the app is installed and in dilam/pelam page it shows that last record was shared through messenger when the toggle button is  inactive")
+    @Description("Confirm that lenden record can be shared in whatsapp given that the app is installed and in " +
+            "dilam/pelam " +
+            "page it shows that last record was shared through messenger when the toggle button is  inactive")
     public void shareRecordInWhatsapp() throws InterruptedException {
         tScreen = new TallyScreen(driver);
         String textRecordSharedMedium = tScreen.shareRecordInWhatsapp(driver);
         System.out.println("shareRecordInMessenger " + textRecordSharedMedium);
-        Assert.assertTrue(textRecordSharedMedium.contains(dotenv.get("PARTIAL_TEXT_RECORD_SHARE_APP_MESSENGER")));
+        Assert.assertTrue(textRecordSharedMedium.contains(dotenv.get("PARTIAL_TEXT_RECORD_SHARE_APP_WHATSAPP")));
     }
     /*
      *--------------------------------------

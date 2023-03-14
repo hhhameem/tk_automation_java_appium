@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Utils;
 
 public class SendMoney {
 
@@ -157,7 +158,7 @@ public class SendMoney {
 
         pin1.click();
         Actions p1 = new Actions(driver);
-        p1.sendKeys("3");
+        p1.sendKeys("5");
         p1.perform();
 
         pin2.click();
@@ -185,10 +186,11 @@ public class SendMoney {
         poroborti_btn_sm.click();
         Thread.sleep(2000);
 
-        pin_input_sm.sendKeys("3000");
+        pin_input_sm.sendKeys("5000");
         Thread.sleep(2000);
         confirm_btn_sm.click();
         Thread.sleep(2000);
+        Utils.saveScreenshot("Before Clicking thik ache button", driver);
         thik_ace_btn_sm.click();
         Thread.sleep(2000);
 
@@ -207,7 +209,7 @@ public class SendMoney {
         poroborti_btn_sm.click();
         Thread.sleep(2000);
 
-        pin_input_sm.sendKeys("3000");
+        pin_input_sm.sendKeys("5000");
         Thread.sleep(2000);
         confirm_btn_sm.click();
         Thread.sleep(2000);
