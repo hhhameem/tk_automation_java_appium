@@ -142,23 +142,23 @@ public class MoneyOut {
         nexr_btn.click();
         otp1.click();
         Actions a = new Actions(driver);
-        a.sendKeys("1");
+        a.sendKeys("1234");
         a.perform();
 
-        otp2.click();
-        Actions b = new Actions(driver);
-        b.sendKeys("2");
-        b.perform();
-
-        otp3.click();
-        Actions c = new Actions(driver);
-        c.sendKeys("3");
-        c.perform();
-
-        otp4.click();
-        Actions d = new Actions(driver);
-        d.sendKeys("4");
-        d.perform();
+//        otp2.click();
+//        Actions b = new Actions(driver);
+//        b.sendKeys("2");
+//        b.perform();
+//
+//        otp3.click();
+//        Actions c = new Actions(driver);
+//        c.sendKeys("3");
+//        c.perform();
+//
+//        otp4.click();
+//        Actions d = new Actions(driver);
+//        d.sendKeys("4");
+//        d.perform();
 
 
         confirm_btn.click();
@@ -168,23 +168,23 @@ public class MoneyOut {
 
         pin1.click();
         Actions p1 = new Actions(driver);
-        p1.sendKeys("5");
+        p1.sendKeys("5000");
         p1.perform();
 
-        pin2.click();
-        Actions p2 = new Actions(driver);
-        p2.sendKeys("0");
-        p2.perform();
-
-        pin3.click();
-        Actions p3 = new Actions(driver);
-        p3.sendKeys("0");
-        p3.perform();
-
-        pin4.click();
-        Actions p4 = new Actions(driver);
-        p4.sendKeys("0");
-        p4.perform();
+//        pin2.click();
+//        Actions p2 = new Actions(driver);
+//        p2.sendKeys("0");
+//        p2.perform();
+//
+//        pin3.click();
+//        Actions p3 = new Actions(driver);
+//        p3.sendKeys("0");
+//        p3.perform();
+//
+//        pin4.click();
+//        Actions p4 = new Actions(driver);
+//        p4.sendKeys("0");
+//        p4.perform();
 
        // dismiss_dialog.click();
         wallet_btn.click();
