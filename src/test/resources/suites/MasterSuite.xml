@@ -4,7 +4,12 @@
     <suite-files>
 <!--        <suite-file path="UnverifiedRegistrationtSuite.xml"></suite-file>-->
 <!--        <suite-file path="RegistrationSuite.xml"></suite-file>-->
+<!--        <suite-file path="CashboxSuite.xml"></suite-file>-->
         <suite-file path="TallySuite.xml"></suite-file>
-        <!--        <suite-file path="CashboxSuite.xml"></suite-file>-->
+        <suite-file path="CreditCollectionSuite.xml"></suite-file>
+        <suite-file path="MobileRechargeSuit.xml"></suite-file>
+        <suite-file path="MoneyOutSuit.xml"></suite-file>
+        <suite-file path="SendMoneySuit.xml"></suite-file>
+        <suite-file path="SupplierPaymentSuit.xml"></suite-file>
     </suite-files>
 </suite>

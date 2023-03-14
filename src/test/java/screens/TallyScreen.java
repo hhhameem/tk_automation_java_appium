@@ -432,7 +432,7 @@ public class TallyScreen {
         inputCustomerOrSupplierMobileNumber.sendKeys(invalidNumber);
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        String errorAlert = alertSnackbarText.getText();     // should return মোবাইল নম্বর সঠিক নয়।
+        String errorAlert = alertSnackbarText.getText();
         Utils.saveScreenshot("After clicking confirm button", driver);
         btnBack.click();
         return errorAlert;
@@ -446,7 +446,7 @@ public class TallyScreen {
         inputCustomerOrSupplierMobileNumber.sendKeys(existingPhone);
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        String errorAlert = alertSnackbarText.getText();     // should return এই মোবাইল নম্বরের কাস্টমার আগে থেকেই আছে
+        String errorAlert = alertSnackbarText.getText();
         Utils.saveScreenshot("After clicking confirm button", driver);
         btnBack.click();
         return errorAlert;
@@ -629,7 +629,7 @@ public class TallyScreen {
         inputCustomerOrSupplierMobileNumber.sendKeys(invalidPhone);
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        String errorAlert = alertSnackbarText.getText();     // should return মোবাইল নম্বর সঠিক নয়।
+        String errorAlert = alertSnackbarText.getText();
         Utils.saveScreenshot("After clicking confirm button", driver);
         btnBack.click();
         return errorAlert;
@@ -644,7 +644,7 @@ public class TallyScreen {
         inputCustomerOrSupplierMobileNumber.sendKeys(existingPhone);
         Utils.saveScreenshot("Before clicking confirm button", driver);
         btnNischit.click();
-        String errorAlert = alertSnackbarText.getText();     // should return এই মোবাইল নম্বরের কাস্টমার আগে থেকেই আছে
+        String errorAlert = alertSnackbarText.getText();
         Utils.saveScreenshot("After clicking confirm button", driver);
         btnBack.click();
         return errorAlert;
@@ -1276,7 +1276,7 @@ public class TallyScreen {
         btnTagadaPathai.click();
         objectTagadaPathaiLendenDetailsContainer.get(0).click();
         btnCopyLink.click();
-        String confirmAlert = alertSnackbarText.getText();     // should return পেমেন্ট লিংক কপি করা হয়েছে।
+        String confirmAlert = alertSnackbarText.getText();
         Utils.saveScreenshot("After clicking copy tagada pathai link", driver);
         return confirmAlert;
     }
