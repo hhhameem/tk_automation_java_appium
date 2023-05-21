@@ -79,8 +79,8 @@ public class CreditCollectionTagada {
     @FindBy(id = "com.progoti.tallykhata:id/item_wallet")
     WebElement wallet_btn;
 
-    @FindBy(id = "com.progoti.tallykhata:id/cl_baki_adai")
-    WebElement credit_collection_btn;
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> credit_collection_btn;
 
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
     WebElement selected_customer;
@@ -167,7 +167,7 @@ public class CreditCollectionTagada {
 
         //credit collection
 
-        credit_collection_btn.click();
+        credit_collection_btn.get(0).click();
         selected_customer.click();
         send_tallymsg_btn.click();
         Thread.sleep(1000);
@@ -183,7 +183,7 @@ public class CreditCollectionTagada {
     }
 
     public String share_credit_collection_message(AndroidDriver driver) throws InterruptedException {
-        credit_collection_btn.click();
+        credit_collection_btn.get(0).click();
         selected_customer.click();
         share_kori_btn.click();
 

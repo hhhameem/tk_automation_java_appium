@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Utils;
 
+import java.util.List;
+
 public class SupplierPayment {
 
     AndroidDriver driver;
@@ -79,8 +81,8 @@ public class SupplierPayment {
 
     // supplier payment
 
-    @FindBy(id = "com.progoti.tallykhata:id/cl_pay_kori")
-    WebElement supplier_payment_btn;
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> supplier_payment_btn;
 
     @FindBy(id = "com.progoti.tallykhata:id/btnChooseSupplier")
     WebElement choose_supplier_from_list;
@@ -201,7 +203,7 @@ public class SupplierPayment {
 
         //supplier payment
 
-        supplier_payment_btn.click();
+        supplier_payment_btn.get(2).click();
         Thread.sleep(2000);
 
         input_mobile_number_sp.sendKeys("01955555555");

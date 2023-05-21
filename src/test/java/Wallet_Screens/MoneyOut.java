@@ -78,8 +78,8 @@ public class MoneyOut {
     WebElement wallet_btn;
 
 
-    @FindBy(id = "com.progoti.tallykhata:id/cl_transfer_kori")
-    WebElement money_out_btn;
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> money_out_btn;
 
 
     //money out from bank account
@@ -189,7 +189,7 @@ public class MoneyOut {
        // dismiss_dialog.click();
         wallet_btn.click();
 
-        money_out_btn.click();
+        money_out_btn.get(5).click();
         selected_bank_account.click();
         takar_amount_money_out.sendKeys("20.12");
         biboron_money_out.sendKeys("Money Out Bank");
@@ -213,7 +213,7 @@ public class MoneyOut {
 
     public String  money_out_to_nagad(AndroidDriver driver) throws InterruptedException {
 //        ---------------Modified by Hebron--------------------
-        money_out_btn.click();
+        money_out_btn.get(5).click();
         Thread.sleep(1000);
         Utils.swipeUp(driver, 300);
         Thread.sleep(1000);
@@ -244,7 +244,7 @@ public class MoneyOut {
 
 
 
-       // money_out_btn.click();
+       // money_out_btn.get(5).click();
 
 
 

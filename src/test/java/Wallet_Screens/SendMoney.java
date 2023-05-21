@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Utils;
 
+import java.util.List;
+
 public class SendMoney {
 
     AndroidDriver driver;
@@ -77,8 +79,8 @@ public class SendMoney {
     @FindBy(id = "com.progoti.tallykhata:id/item_wallet")
     WebElement wallet_btn;
 
-    @FindBy(id = "com.progoti.tallykhata:id/cl_taka_pathay")
-    WebElement send_money_btn;
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> send_money_btn;
 
     @FindBy(id = "com.progoti.tallykhata:id/etNumberInput")
     WebElement input_number_field;
@@ -178,7 +180,7 @@ public class SendMoney {
 
 //        dismiss_dialog.click();
         wallet_btn.click();
-        send_money_btn.click();
+        send_money_btn.get(4).click();
         input_number_field.sendKeys("01715321521");
         send_money_next_btn.click();
         input_amount.sendKeys("22");
@@ -225,7 +227,7 @@ public class SendMoney {
     public String send_money_from_selected_number_from_pb(AndroidDriver driver){
 
         slect_number_from_pb.click();
-        send_money_btn.click();
+        send_money_btn.get(4).click();
         input_amount.sendKeys("22.85");
         input_description.sendKeys("Send Money PB");
         send_money_back_btn.click();

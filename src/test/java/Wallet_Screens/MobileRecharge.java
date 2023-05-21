@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Utils;
 
+import java.util.List;
+
 public class MobileRecharge {
 
     AndroidDriver driver;
@@ -76,8 +78,8 @@ public class MobileRecharge {
     @FindBy(id = "com.progoti.tallykhata:id/item_wallet")
     WebElement wallet_btn;
 
-    @FindBy(id = "com.progoti.tallykhata:id/cl_mobile_recharge")
-    WebElement mobile_recharge_btn;
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> mobile_recharge_btn;
 
 
 
@@ -171,7 +173,7 @@ public class MobileRecharge {
 
         //mobile recharge
 
-        mobile_recharge_btn.click();
+        mobile_recharge_btn.get(1).click();
         mobile_number_input.sendKeys("01643106718");
         next_btn.click();
         selected_operator.click();

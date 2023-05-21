@@ -12,6 +12,7 @@ import utils.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Setup {
@@ -21,7 +22,7 @@ public class Setup {
     @BeforeTest
     public AndroidDriver setup() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("deviceName", "Symphony Z30 pro");
+        desiredCapabilities.setCapability("deviceName", "Samsung M62");
         desiredCapabilities.setCapability("platformName", "Android");
 //        desiredCapabilities.setCapability("os", 10);
         desiredCapabilities.setCapability("os", 13);
@@ -35,7 +36,7 @@ public class Setup {
         desiredCapabilities.setCapability("appActivity", dotenv.get("APP_ACTIVITY"));
         URL url = new URL("http://0.0.0.0:4723/wd/hub");
         driver = new AndroidDriver(url, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         return driver;
     }
 
