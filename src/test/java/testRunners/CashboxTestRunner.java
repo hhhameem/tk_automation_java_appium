@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import screens.CashboxScreen;
-import screens.RegistrationScreen;
+import screens.RegistrationAndLoginScreen;
 import setup.Setup;
 import utils.Utils;
 
@@ -16,7 +16,7 @@ public class CashboxTestRunner extends Setup {
 
     @BeforeTest
     public void register() throws InterruptedException {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         rScreen.insertPhoneAndClickButton(Utils.randomPhoneNumber());
         rScreen.insertOtpAndClickButton(driver);
         rScreen.insertShopNameAndClickButton(Utils.randomShopName());

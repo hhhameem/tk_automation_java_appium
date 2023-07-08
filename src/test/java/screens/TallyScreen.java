@@ -994,8 +994,8 @@ public class TallyScreen {
         Utils.saveScreenshot("After clicking tally message pathai", driver);
         btnThikAcheTallyMessage.click();
         Thread.sleep(3000);
-        btnTagadaPathai.click();
-        objectCustomerOrSupplierInfoContainer.get(0).click();
+//        btnTagadaPathai.click();
+//        objectCustomerOrSupplierInfoContainer.get(0).click();
         String textSMSCount = textTagadaSMSCount.getText();
         Utils.saveScreenshot("After clicking tally message pathai SMS count", driver);
         btnBack.click();

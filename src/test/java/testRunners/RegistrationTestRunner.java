@@ -3,7 +3,7 @@ package testRunners;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import screens.RegistrationScreen;
+import screens.RegistrationAndLoginScreen;
 import setup.Setup;
 import utils.Utils;
 
@@ -15,7 +15,7 @@ public class RegistrationTestRunner extends Setup {
 
     @Test(priority = 1, description = "Enter phone number")
     public void enterPhoneNumberAndClickButton() throws InterruptedException {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         boolean isButtonEnabled = rScreen.insertPhoneAndClickButton(phoneNumber);
         Utils.saveScreenshot("Screenshot", driver);
         Assert.assertTrue(isButtonEnabled);
@@ -23,7 +23,7 @@ public class RegistrationTestRunner extends Setup {
 
     @Test(priority = 2, description = "Enter OTP")
     public void enterOtpAndClickButton() throws InterruptedException {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         boolean isButtonEnabled = rScreen.insertOtpAndClickButton(driver);
         Utils.saveScreenshot("Screenshot", driver);
         Assert.assertTrue(isButtonEnabled);
@@ -31,7 +31,7 @@ public class RegistrationTestRunner extends Setup {
 
     @Test(priority = 3, description = "Enter shop name")
     public void enterShopNameAndClickButton() throws Exception {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         boolean isButtonEnabled = rScreen.insertShopNameAndClickButton(shopName);
         Utils.saveScreenshot("Screenshot", driver);
         if (isButtonEnabled) {
@@ -42,7 +42,7 @@ public class RegistrationTestRunner extends Setup {
 
     @Test(priority = 4, description = "Match shop title")
     public void matchShopTitle() throws IOException, ParseException {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         String expected_shop_title = Utils.getLastRegisteredUserShopName("users");
         String actual_shop_title = rScreen.textShopTitle.getText();
         Utils.saveScreenshot("Screenshot", driver);

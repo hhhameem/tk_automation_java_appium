@@ -25,7 +25,7 @@ public class Setup {
         desiredCapabilities.setCapability("deviceName", "Samsung M62");
         desiredCapabilities.setCapability("platformName", "Android");
 //        desiredCapabilities.setCapability("os", 10);
-        desiredCapabilities.setCapability("os", 13);
+        desiredCapabilities.setCapability("os", 11);
 //        desiredCapabilities.setCapability("uuid", dotenv.get("UUID_EMULATOR"));
         desiredCapabilities.setCapability("uuid", dotenv.get("UUID_REAL_DEVICE"));
         desiredCapabilities.setCapability("uiautomator2ServerInstallTimeout", 90000);

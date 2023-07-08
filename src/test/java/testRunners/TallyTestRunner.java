@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import screens.TallyScreen;
-import screens.RegistrationScreen;
+import screens.RegistrationAndLoginScreen;
 import setup.Setup;
 import utils.Utils;
 
@@ -17,7 +17,7 @@ public class TallyTestRunner extends Setup {
 
     @BeforeTest
     public void register() throws InterruptedException {
-        RegistrationScreen rScreen = new RegistrationScreen(driver);
+        RegistrationAndLoginScreen rScreen = new RegistrationAndLoginScreen(driver);
         rScreen.insertPhoneAndClickButton(Utils.randomPhoneNumber());
         rScreen.insertOtpAndClickButton(driver);
         rScreen.insertShopNameAndClickButton(Utils.randomShopName());

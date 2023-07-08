@@ -14,8 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class RegistrationScreen {
-    public RegistrationScreen(AndroidDriver driver) {
+public class RegistrationAndLoginScreen {
+    public RegistrationAndLoginScreen(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -31,8 +31,18 @@ public class RegistrationScreen {
     WebElement btnNext;
     @FindBy(id = "com.progoti.tallykhata:id/tvResendOtp")
     WebElement btnResentOtp;
+    @FindBy(id = "com.progoti.tallykhata:id/rb_current_mobile")
+    WebElement radioCurrentMobile;
+    @FindBy(id = "com.progoti.tallykhata:id/tvDeviceDisableWarning")
+    WebElement textDeviceSelectionWarning;
+    @FindBy(id = "com.progoti.tallykhata:id/btn_confirm")
+    WebElement btnNischit;
     @FindBy(id = "com.progoti.tallykhata:id/et_shop_name")
     WebElement inputShopName;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[1]")
+    WebElement inputPin1;
+    @FindBy(id = "com.progoti.tallykhata:id/snackbar_text")
+    WebElement alertSnackbarText;
     @FindBy(id = "com.progoti.tallykhata:id/toolbar_title")
     public WebElement textShopTitle;
     @FindBy(id = "com.progoti.tallykhata:id/iv_alert")
@@ -53,8 +63,8 @@ public class RegistrationScreen {
 
     public boolean insertPhoneAndClickButton(String mobileNumberToInsert) throws InterruptedException {
         inputMobileNumber.sendKeys(mobileNumberToInsert);
-        boolean isButtonEnabled = btnPoroborti.isEnabled();
         Thread.sleep(1000);
+        boolean isButtonEnabled = btnPoroborti.isEnabled();
         if (isButtonEnabled) {
             btnPoroborti.click();
         }
@@ -75,14 +85,19 @@ public class RegistrationScreen {
 
     public boolean insertShopNameAndClickButton(String shop_name) throws InterruptedException {
         inputShopName.sendKeys(shop_name);
-        boolean isButtonEnabled = btnNext.isEnabled();
         Thread.sleep(1000);
+        boolean isButtonEnabled = btnNext.isEnabled();
         if (isButtonEnabled) {
             btnNext.click();
         }
         return isButtonEnabled;
     }
 
+    /*
+     *--------------------------------------
+     *  Unverified registration test starts
+     * -------------------------------------
+     */
     public String createUnverifiedAccount(String phone, String name, AndroidDriver driver) throws InterruptedException {
         insertPhoneAndClickButton(phone);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
@@ -100,7 +115,7 @@ public class RegistrationScreen {
             insertOtpAndClickButton(driver);
         } else {
             btnResentOtp.click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             btnResentOtp.click();
             insertOtpAndClickButton(driver);
         }
@@ -116,5 +131,30 @@ public class RegistrationScreen {
         String dataBackupMessage = textDataBackupMessage.getText();
         btnBack.click();
         return dataBackupMessage;
+    }
+
+    /*
+     *--------------------------------------
+     *  Existing user login test starts
+     * -------------------------------------
+     */
+    public boolean isDeviceSelectionWarningTextVisible(AndroidDriver driver, String phoneNumber) throws InterruptedException {
+        insertPhoneAndClickButton(phoneNumber);
+        insertOtpAndClickButton(driver);
+        radioCurrentMobile.click();
+        return textDeviceSelectionWarning.isDisplayed();
+    }
+
+    public String unsuccessfulLogin(AndroidDriver driver) {
+        btnNischit.click();
+        inputPin1.click();
+        Actions action = new Actions(driver);
+        action.sendKeys("1234").perform();
+        return alertSnackbarText.getText();
+    }
+    public void successfulLogin(AndroidDriver driver) {
+        inputPin1.click();
+        Actions action = new Actions(driver);
+        action.sendKeys(dotenv.get("PIN")).perform();
     }
 }
