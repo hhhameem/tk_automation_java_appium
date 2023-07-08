@@ -115,7 +115,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addCustomerWithValidNameInvalidPhone("Piya Roy", "011");
         System.out.println("addCustomerWithValidNameInvalidPhone " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_INVALID_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_INVALID_PHONE")));
     }
 
     @Test(priority = 11)
@@ -124,7 +124,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addCustomerWithExistingPhone("Asim Kha", "01953471217");
         System.out.println("addCustomerWithExistingPhone " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_EXISTING_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_EXISTING_PHONE")));
     }
 
     @Test(priority = 12)
@@ -142,7 +142,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addCustomerFromPhoneBookWithInvalidNumber();
         System.out.println("addCustomerFromPhoneBookWithInvalidNumber " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_INVALID_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_INVALID_PHONE")));
     }
 
     /*
@@ -239,7 +239,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addSupplierWithValidNameInvalidPhone("Kim Ra Yu", "011");
         System.out.println("addSupplierWithValidNameInvalidPhone " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_INVALID_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_INVALID_PHONE")));
     }
 
     @Test(priority = 24)
@@ -248,7 +248,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addSupplierWithExistingPhone("Park Na", "01517169846");
         System.out.println("addSupplierWithExistingPhone " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_EXISTING_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_EXISTING_PHONE")));
     }
 
     @Test(priority = 25)
@@ -266,7 +266,7 @@ public class TallyTestRunner extends Setup {
         tScreen = new TallyScreen(driver);
         String errorMessage = tScreen.addSupplierFromPhoneBookWithInvalidNumber();
         System.out.println("addSupplierFromPhoneBookWithInvalidNumber " + errorMessage);
-        Assert.assertTrue(errorMessage.contains(dotenv.get("ERROR_MESSAGE_WHEN_INVALID_PHONE")));
+        Assert.assertTrue(errorMessage.contains(dotenv.get("TEXT_SNACKBAR_ERROR_WHEN_INVALID_PHONE")));
     }
 
     /*
