@@ -28,11 +28,16 @@ public class WalletScreen {
     List<WebElement> btnWalletOptions;      //index 1 for mobile recharge
 
 
+    //    Common elements
+    @FindBy(id = "com.progoti.tallykhata:id/back_button")
+    WebElement btnBack;
+
+
     //    Mobile recharge elements
     @FindBy(id = "com.progoti.tallykhata:id/etNumberInput")
     WebElement inputMobileNumber;
     @FindBy(id = "com.progoti.tallykhata:id/textinput_error")
-    WebElement textInputErrorMessage;
+    public WebElement textInputErrorMessage;
     @FindBy(id = "com.progoti.tallykhata:id/btnNextTW")
     WebElement btnNextArrow;
     @FindBy(id = "com.progoti.tallykhata:id/tv_account_no")
@@ -93,15 +98,128 @@ public class WalletScreen {
     WebElement textPackageFee;
     @FindBy(id = "com.progoti.tallykhata:id/tv_alert_message")
     WebElement textErrorInsufficientBalance;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_server_error_mssg")
+    WebElement textErrorWrongPin;
     @FindBy(id = "com.progoti.tallykhata:id/button")
-    WebElement btnCloseErrorInsufficientBalance;
+    WebElement btnCloseErrorInsufficientBalanceOrWrongPin;
     @FindBy(id = "com.progoti.tallykhata:id/etPinInput")
     WebElement inputPin;
     @FindBy(id = "com.progoti.tallykhata:id/btnNext")
-    WebElement btnNischitAfterPin;
+    WebElement btnNextAfterAmountAndPin;
     @FindBy(id = "com.progoti.tallykhata:id/successTitle")
     WebElement textSuccessMessage;
     @FindBy(id = "com.progoti.tallykhata:id/btnReturnHome")
     WebElement btnThikAcheInSuccessPage;
+
+
+
+    public boolean arrowButtonDisabledForInvalidPhoneNumber(String invalidPhoneNumber) {
+        tabWallet.click();
+        btnWalletOptions.get(1).click();
+        inputMobileNumber.sendKeys(invalidPhoneNumber);
+        return btnNextArrow.isEnabled();
+    }
+
+    public String errorInputMessageForInvalidPhoneNumber() {
+        String errorMessage = textInputErrorMessage.getText();
+        inputMobileNumber.clear();
+        return errorMessage;
+    }
+
+    public String infoMessageInScreenForNewValidNumber(String validPhoneNumber) {
+        inputMobileNumber.sendKeys(validPhoneNumber);
+        return textInfoMessageInScreen.getText();
+    }
+
+    public boolean arrowButtonEnabledForValidPhoneNumber() {
+        boolean isArrowEnabled = btnNextArrow.isEnabled();
+        btnNextArrow.click();
+        return isArrowEnabled;
+    }
+
+    public String selectOperatorAndConnectionType() {
+        String numberToRecharge = textContactNumber.getText();
+        btnRadioPrepaid.click();
+        btnThikAche.click();
+        return numberToRecharge;
+    }
+
+    public String insufficientBalanceErrorMessage(String insufficientAmountToRecharge) {
+        inputRechargeAmount.sendKeys(insufficientAmountToRecharge);
+        return textInputErrorMessage.getText();
+    }
+
+    public boolean porobortiButtonDisabledForInsufficientBalance() {
+        boolean isButtonDisabled =  btnNextAfterAmountAndPin.isEnabled();
+        inputRechargeAmount.clear();
+        return isButtonDisabled;
+    }
+
+    public String rechargeAmountSameInPinPage(String rechargeAmount) {
+        inputRechargeAmount.sendKeys(rechargeAmount);
+        btnNextAfterAmountAndPin.click();
+        return textPackageFee.getText();
+    }
+
+    public boolean buttonDisabledForPinLessThanFour(String pinLessThanFour) {
+        inputPin.sendKeys(pinLessThanFour);
+        boolean isButtonDisabled = btnNextAfterAmountAndPin.isEnabled();
+        inputPin.clear();
+        return isButtonDisabled;
+    }
+
+    public String errorMessageForWrongPin(String wrongPin) {
+        inputPin.sendKeys(wrongPin);
+        String errorMessage = textErrorWrongPin.getText();
+        btnCloseErrorInsufficientBalanceOrWrongPin.click();
+        inputPin.clear();
+        return errorMessage;
+    }
+
+    public String rechargeSuccessful(String correctPin) {
+        inputPin.sendKeys(correctPin);
+        btnNextAfterAmountAndPin.click();
+        String successMessage = textSuccessMessage.getText();
+        btnThikAcheInSuccessPage.click();
+        return successMessage;
+    }
+
+    public boolean frequentRechargeAmountVisible() {
+        btnWalletOptions.get(1).click();
+        textAccountNumberInMobileNumberPage.click();
+        btnThikAche.click();
+        return btnFrequentRechargeAmount.size() >= 1;
+    }
+
+    public String rechargeFromFrequentRechargeAmount(String pin) {
+        btnFrequentRechargeAmount.get(0).click();
+        inputPin.sendKeys(pin);
+        btnNextAfterAmountAndPin.click();
+        String successMessage = textSuccessMessage.getText();
+        btnThikAcheInSuccessPage.click();
+        return successMessage;
+    }
+
+    public String noPackageAvailable(String gpPhoneNumber) {
+        btnWalletOptions.get(1).click();
+        inputMobileNumber.sendKeys(gpPhoneNumber);
+        btnRadioSkitto.click();
+        btnThikAche.click();
+        tabCallRate.click();
+        return textNoPackagesAvailable.getText();
+    }
+
+    public String rechargeBundlePackage(String pin) {
+        btnToChangeOperator.click();
+        btnRadioPrepaid.click();
+        btnThikAche.click();
+        tabBundle.click();
+        rechargePackagesList.get(0).click();
+        inputPin.sendKeys(pin);
+        btnNextAfterAmountAndPin.click();
+        String successMessage = textSuccessMessage.getText();
+        btnThikAcheInSuccessPage.click();
+        return successMessage;
+    }
 
 }
