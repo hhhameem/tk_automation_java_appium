@@ -1,0 +1,107 @@
+package screens;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+
+public class WalletScreen {
+    AndroidDriver driver;
+
+    public WalletScreen(AndroidDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
+    //    Main Menus(Tabs)
+    @FindBy(id = "com.progoti.tallykhata:id/item_wallet")
+    WebElement tabWallet;
+    @FindBy(id = "com.progoti.tallykhata:id/item_menu")
+    WebElement tabMenu;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_title")
+    List<WebElement> tabMenuOptions;
+
+    //    Wallet Main page elements
+    @FindBy(id = "com.progoti.tallykhata:id/img_service")
+    List<WebElement> btnWalletOptions;      //index 1 for mobile recharge
+
+
+    //    Mobile recharge elements
+    @FindBy(id = "com.progoti.tallykhata:id/etNumberInput")
+    WebElement inputMobileNumber;
+    @FindBy(id = "com.progoti.tallykhata:id/textinput_error")
+    WebElement textInputErrorMessage;
+    @FindBy(id = "com.progoti.tallykhata:id/btnNextTW")
+    WebElement btnNextArrow;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_account_no")
+    WebElement textAccountNumberInMobileNumberPage;       // use this id for accessing element in amar number section
+    @FindBy(id = "com.progoti.tallykhata:id/tv_txn_name")
+    List<WebElement> textAccountNameInMobileNumberPage;       // use this id for accessing element in recent recharge section
+    @FindBy(id = "com.progoti.tallykhata:id/tv_recharge_message")
+    WebElement textInfoMessageInScreen;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_contact_name")
+    WebElement textContactName;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_contact_no")
+    WebElement textContactNumber;
+    @FindBy(id = "com.progoti.tallykhata:id/iv_operator_thumb")
+    List<WebElement> operators;
+    @FindBy(id = "com.progoti.tallykhata:id/radio_prepaid")
+    WebElement btnRadioPrepaid;
+    @FindBy(id = "com.progoti.tallykhata:id/radio_post_paid")
+    WebElement btnRadioPostpaid;
+    @FindBy(id = "com.progoti.tallykhata:id/radio_skitto")
+    WebElement btnRadioSkitto;
+    @FindBy(id = "com.progoti.tallykhata:id/btnOk")
+    WebElement btnThikAche;
+    @FindBy(id = "com.progoti.tallykhata:id/ic_down_arrow")
+    WebElement btnToChangeOperator;
+    @FindBy(id = "com.progoti.tallykhata:id/etTkInput")
+    WebElement inputRechargeAmount;
+    @FindBy(id = "com.progoti.tallykhata:id/btn_taka")
+    List<WebElement> btnFrequentRechargeAmount;
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"টাকা\"]")
+    WebElement tabTaka;
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"বান্ডেল\"]")
+    WebElement tabBundle;
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"ইন্টারনেট\"]")
+    WebElement tabInternet;
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"মিনিট\"]")
+    WebElement tabMinute;
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"কলরেট\"]")
+    WebElement tabCallRate;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_title_offer_info")
+    WebElement btnOfferInfo;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_offer_info")
+    WebElement textOfferInfoInBottomSheet;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_empty_item")
+    WebElement textNoPackagesAvailable;
+    @FindBy(id = "com.progoti.tallykhata:id/cl_root")
+    List<WebElement> rechargePackagesList;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_discount")
+    WebElement textPackageOfferTag;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_minute")
+    WebElement textPackageDetails;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_mb")
+    WebElement textPackageDetailsInPinPage;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_day")
+    WebElement textPackageValidity;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_bonus_cash_back")
+    WebElement textPackageBonusCashback;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_amount")
+    WebElement textPackageFee;
+    @FindBy(id = "com.progoti.tallykhata:id/tv_alert_message")
+    WebElement textErrorInsufficientBalance;
+    @FindBy(id = "com.progoti.tallykhata:id/button")
+    WebElement btnCloseErrorInsufficientBalance;
+    @FindBy(id = "com.progoti.tallykhata:id/etPinInput")
+    WebElement inputPin;
+    @FindBy(id = "com.progoti.tallykhata:id/btnNext")
+    WebElement btnNischitAfterPin;
+    @FindBy(id = "com.progoti.tallykhata:id/successTitle")
+    WebElement textSuccessMessage;
+    @FindBy(id = "com.progoti.tallykhata:id/btnReturnHome")
+    WebElement btnThikAcheInSuccessPage;
+
+}

@@ -157,4 +157,15 @@ public class RegistrationAndLoginScreen {
         Actions action = new Actions(driver);
         action.sendKeys(dotenv.get("PIN")).perform();
     }
+
+    // this function is used only before the wallet operations with beforeTest annotations
+    public void loginBeforeRunningWalletOps(AndroidDriver driver, String phoneNumber) throws InterruptedException {
+        insertPhoneAndClickButton(phoneNumber);
+        insertOtpAndClickButton(driver);
+        radioCurrentMobile.click();
+        btnNischit.click();
+        inputPin1.click();
+        Actions action = new Actions(driver);
+        action.sendKeys(dotenv.get("PIN")).perform();
+    }
 }
