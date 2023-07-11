@@ -66,15 +66,18 @@ public class WalletScreen {
     WebElement inputRechargeAmount;
     @FindBy(id = "com.progoti.tallykhata:id/btn_taka")
     List<WebElement> btnFrequentRechargeAmount;
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"টাকা\"]")
+//    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"টাকা\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
     WebElement tabTaka;
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"বান্ডেল\"]")
+//    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"বান্ডেল\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
     WebElement tabBundle;
     @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"ইন্টারনেট\"]")
     WebElement tabInternet;
     @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"মিনিট\"]")
     WebElement tabMinute;
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"কলরেট\"]")
+//    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"কলরেট\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
     WebElement tabCallRate;
     @FindBy(id = "com.progoti.tallykhata:id/tv_title_offer_info")
     WebElement btnOfferInfo;

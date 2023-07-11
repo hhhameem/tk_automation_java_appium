@@ -6,7 +6,8 @@
 <!--        <suite-file path="RegistrationSuite.xml"></suite-file>-->
 <!--        <suite-file path="CashboxSuite.xml"></suite-file>-->
 <!--        <suite-file path="LoginSuite.xml"></suite-file>-->
-        <suite-file path="TallySuite.xml"></suite-file>
+<!--        <suite-file path="TallySuite.xml"></suite-file>-->
+        <suite-file path="WalletSuite.xml"></suite-file>
 <!--        <suite-file path="CreditCollectionSuite.xml"></suite-file>-->
 <!--        <suite-file path="MobileRechargeSuite.xml"></suite-file>-->
 <!--        <suite-file path="MoneyOutSuit.xml"></suite-file>-->

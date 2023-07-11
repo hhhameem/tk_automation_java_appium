@@ -31,7 +31,7 @@ public class WalletTestRunner extends Setup {
         System.out.println("errorInputMessageForInvalidPhoneNumber - " + errorMessage);
     }
     @Test(priority = 3)
-    public void infoMessageInScreenForNewValidNumber(String validPhoneNumber) {
+    public void infoMessageInScreenForNewValidNumber() {
         wScreen = new WalletScreen(driver);
         String errorMessage = wScreen.infoMessageInScreenForNewValidNumber("01876345636");
         System.out.println("infoMessageInScreenForNewValidNumber - " + errorMessage);
@@ -49,7 +49,7 @@ public class WalletTestRunner extends Setup {
         System.out.println("selectOperatorAndConnectionType - " + errorMessage);
     }
     @Test(priority = 6)
-    public void insufficientBalanceErrorMessage(String insufficientAmountToRecharge) {
+    public void insufficientBalanceErrorMessage() {
         wScreen = new WalletScreen(driver);
         String errorMessage = wScreen.insufficientBalanceErrorMessage("12000");
         System.out.println("insufficientBalanceErrorMessage - " + errorMessage);
@@ -61,25 +61,25 @@ public class WalletTestRunner extends Setup {
         System.out.println("porobortiButtonDisabledForInsufficientBalance - " + isButtonDisabled);
     }
     @Test(priority = 8)
-    public void rechargeAmountSameInPinPage(String rechargeAmount) {
+    public void rechargeAmountSameInPinPage() {
         wScreen = new WalletScreen(driver);
         String errorMessage = wScreen.rechargeAmountSameInPinPage("21");
         System.out.println("rechargeAmountSameInPinPage - " + errorMessage);
     }
     @Test(priority = 9)
-    public void buttonDisabledForPinLessThanFour(String pinLessThanFour) {
+    public void buttonDisabledForPinLessThanFour() {
         wScreen = new WalletScreen(driver);
         boolean isButtonDisabled = wScreen.buttonDisabledForPinLessThanFour("123");
         System.out.println("buttonDisabledForPinLessThanFour - " + isButtonDisabled);
     }
     @Test(priority = 10)
-    public void errorMessageForWrongPin(String wrongPin) {
+    public void errorMessageForWrongPin() {
         wScreen = new WalletScreen(driver);
         String errorMessage = wScreen.errorMessageForWrongPin("1234");
         System.out.println("errorMessageForWrongPin - " + errorMessage);
     }
     @Test(priority = 11)
-    public void rechargeSuccessful(String correctPin) {
+    public void rechargeSuccessful() {
         wScreen = new WalletScreen(driver);
         String successMessage = wScreen.rechargeSuccessful(dotenv.get("PIN"));
         System.out.println("rechargeSuccessful - " + successMessage);
@@ -91,19 +91,19 @@ public class WalletTestRunner extends Setup {
         System.out.println("frequentRechargeAmountVisible - " + isvisible);
     }
     @Test(priority = 13)
-    public void rechargeFromFrequentRechargeAmount(String pin) {
+    public void rechargeFromFrequentRechargeAmount() {
         wScreen = new WalletScreen(driver);
         String successMessage = wScreen.rechargeFromFrequentRechargeAmount(dotenv.get("PIN"));
         System.out.println("rechargeFromFrequentRechargeAmount - " + successMessage);
     }
     @Test(priority = 14)
-    public void noPackageAvailable(String gpPhoneNumber) {
+    public void noPackageAvailable() {
         wScreen = new WalletScreen(driver);
         String message = wScreen.noPackageAvailable("01726897612");
         System.out.println("noPackageAvailable - " + message);
     }
     @Test(priority = 15)
-    public void rechargeBundlePackage(String pin) {
+    public void rechargeBundlePackage() {
         wScreen = new WalletScreen(driver);
         String successMessage = wScreen.rechargeBundlePackage(dotenv.get("PIN"));
         System.out.println("rechargeBundlePackage - " + successMessage);
