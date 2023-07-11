@@ -69,15 +69,15 @@ public class WalletScreen {
 //    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"টাকা\"]")
     @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
     WebElement tabTaka;
-//    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"বান্ডেল\"]")
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"বান্ডেল\"]")
     WebElement tabBundle;
     @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"ইন্টারনেট\"]")
     WebElement tabInternet;
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"মিনিট\"]")
+//    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"মিনিট\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u09AE\u09BF\u09A8\u09BF\u099F\"]")
     WebElement tabMinute;
 //    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"কলরেট\"]")
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u099F\u09BE\u0995\u09BE\"]")
+    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"\u0995\u09B2\u09B0\u09C7\u099F\"]")
     WebElement tabCallRate;
     @FindBy(id = "com.progoti.tallykhata:id/tv_title_offer_info")
     WebElement btnOfferInfo;
