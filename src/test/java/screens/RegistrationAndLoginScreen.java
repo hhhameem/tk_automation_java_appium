@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -162,10 +163,15 @@ public class RegistrationAndLoginScreen {
     public void loginBeforeRunningWalletOps(AndroidDriver driver, String phoneNumber) throws InterruptedException {
         insertPhoneAndClickButton(phoneNumber);
         insertOtpAndClickButton(driver);
-        radioCurrentMobile.click();
-        btnNischit.click();
-        inputPin1.click();
-        Actions action = new Actions(driver);
-        action.sendKeys(dotenv.get("PIN")).perform();
+        try {
+            radioCurrentMobile.click();
+            btnNischit.click();
+        } catch (NoSuchElementException e) {
+            System.out.println("Previously logged in the same device. So this current mobile selection is not necessary");
+        } finally {
+            inputPin1.click();
+            Actions action = new Actions(driver);
+            action.sendKeys(dotenv.get("PIN")).perform();
+        }
     }
 }
