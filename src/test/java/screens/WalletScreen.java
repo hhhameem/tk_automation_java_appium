@@ -1,6 +1,8 @@
 package screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -130,9 +132,19 @@ public class WalletScreen {
         return errorMessage;
     }
 
-    public String infoMessageInScreenForNewValidNumber(String validPhoneNumber) {
+    public String infoMessageInScreenForNewValidNumber(String validPhoneNumber) throws InterruptedException {
         inputMobileNumber.click();
         inputMobileNumber.sendKeys(validPhoneNumber);
+        Thread.sleep(2000);
+        inputMobileNumber.click();
+        driver.pressKey(new KeyEvent(AndroidKey.DEL));
+        Thread.sleep(2000);
+        driver.pressKey(new KeyEvent(AndroidKey.BUTTON_2));
+//        Actions action = new Actions(driver);
+//        action.sendKeys(AndroidKey.DEL).perform();
+//        Thread.sleep(2000);
+        inputMobileNumber.sendKeys("1");
+        Thread.sleep(2000);
         return textInfoMessageInScreen.getText();
     }
 

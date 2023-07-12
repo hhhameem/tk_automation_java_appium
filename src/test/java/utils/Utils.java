@@ -21,11 +21,17 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     public static String randomPhoneNumber() {
         Random rnd = new Random();
         return "019" + (10000000 + rnd.nextInt(90000000));
+    }
+    public static String randomPhoneNumberToRecharge() {
+        String numberPrefix[]={"013","014","015","016","017","018","019"};
+        Random rnd = new Random();
+        return numberPrefix[ThreadLocalRandom.current().nextInt(0, 7)] + (10000000 + rnd.nextInt(90000000));
     }
 
     public static String randomShopName() {

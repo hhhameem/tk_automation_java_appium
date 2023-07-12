@@ -21,7 +21,7 @@ public class WalletTestRunner extends Setup {
     @Test(priority = 1)
     public void arrowButtonDisabledForInvalidPhoneNumber() {
         wScreen = new WalletScreen(driver);
-        boolean isArrowButtonDisabled = wScreen.arrowButtonDisabledForInvalidPhoneNumber("015364");
+        boolean isArrowButtonDisabled = wScreen.arrowButtonDisabledForInvalidPhoneNumber("011364");
         System.out.println("arrowButtonDisabledForInvalidPhoneNumber - " + isArrowButtonDisabled);
     }
     @Test(priority = 2)
@@ -31,9 +31,9 @@ public class WalletTestRunner extends Setup {
         System.out.println("errorInputMessageForInvalidPhoneNumber - " + errorMessage);
     }
     @Test(priority = 3)
-    public void infoMessageInScreenForNewValidNumber() {
+    public void infoMessageInScreenForNewValidNumber() throws InterruptedException {
         wScreen = new WalletScreen(driver);
-        String errorMessage = wScreen.infoMessageInScreenForNewValidNumber("01876345636");
+        String errorMessage = wScreen.infoMessageInScreenForNewValidNumber(Utils.randomPhoneNumberToRecharge());
         System.out.println("infoMessageInScreenForNewValidNumber - " + errorMessage);
     }
     @Test(priority = 4)
