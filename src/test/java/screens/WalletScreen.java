@@ -119,6 +119,7 @@ public class WalletScreen {
     public boolean arrowButtonDisabledForInvalidPhoneNumber(String invalidPhoneNumber) {
         tabWallet.click();
         btnWalletOptions.get(1).click();
+        inputMobileNumber.click();
         inputMobileNumber.sendKeys(invalidPhoneNumber);
         return btnNextArrow.isEnabled();
     }
@@ -130,6 +131,7 @@ public class WalletScreen {
     }
 
     public String infoMessageInScreenForNewValidNumber(String validPhoneNumber) {
+        inputMobileNumber.click();
         inputMobileNumber.sendKeys(validPhoneNumber);
         return textInfoMessageInScreen.getText();
     }
@@ -148,6 +150,7 @@ public class WalletScreen {
     }
 
     public String insufficientBalanceErrorMessage(String insufficientAmountToRecharge) {
+        inputRechargeAmount.click();
         inputRechargeAmount.sendKeys(insufficientAmountToRecharge);
         return textInputErrorMessage.getText();
     }
@@ -165,6 +168,7 @@ public class WalletScreen {
     }
 
     public boolean buttonDisabledForPinLessThanFour(String pinLessThanFour) {
+        inputPin.click();
         inputPin.sendKeys(pinLessThanFour);
         boolean isButtonDisabled = btnNextAfterAmountAndPin.isEnabled();
         inputPin.clear();
@@ -173,6 +177,7 @@ public class WalletScreen {
 
     public String errorMessageForWrongPin(String wrongPin) {
         inputPin.sendKeys(wrongPin);
+        btnNextAfterAmountAndPin.click();
         String errorMessage = textErrorWrongPin.getText();
         btnCloseErrorInsufficientBalanceOrWrongPin.click();
         inputPin.clear();
@@ -206,6 +211,7 @@ public class WalletScreen {
     public String noPackageAvailable(String gpPhoneNumber) {
         btnWalletOptions.get(1).click();
         inputMobileNumber.sendKeys(gpPhoneNumber);
+        btnNextArrow.click();
         btnRadioSkitto.click();
         btnThikAche.click();
         tabCallRate.click();
