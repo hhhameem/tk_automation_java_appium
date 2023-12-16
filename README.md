@@ -1,5 +1,10 @@
 # Java Selenium Appium Mobile Automation
 
+## Results
+
+- [Recorded video](https://drive.google.com/drive/folders/1oVcV54CwdwpM7q7pu-crc8aaNkKyu_im?usp=sharing) of the automation.
+- [Allure report](https://tk-automation-report.netlify.app/) of the automation.
+
 ## Prerequisites
 
 - JDK `11` or higher
